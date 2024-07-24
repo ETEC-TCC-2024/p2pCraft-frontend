@@ -1,23 +1,27 @@
 import React from "react";
 import LogoIcon from "./icon/LogoIcon";
-import clsx from "clsx";
+import { cva, VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
-interface LogoProps {
-  variant: keyof typeof LogoVariantStyles
-}
+interface LogoProps extends VariantProps<typeof logoVariants> {}
 
-const defaultStyles = "flex items-center justify-center max-w-fit"
-const LogoVariantStyles = {
-  default: defaultStyles,
-  textWhite: clsx(defaultStyles, "text-white-50")
-}
+const logoVariants = cva("flex items-center justify-center max-w-fit font-medium text-base", {
+  variants: {
+    variant: {
+      primary: "",
+    },
+    textVariant: {
+      primary: "text-black-900",
+      white: "text-white-50",
+    },
+  },
+});
 
-
-export const Logo = ({variant = "default"} : LogoProps) => {
+export const Logo: React.FC<LogoProps> = ({variant, textVariant: text}) => {
   return (
-    <div className={LogoVariantStyles[variant]}>
+    <div className={cn(logoVariants({variant}))}>
       <LogoIcon width={46} height={46}></LogoIcon>
-      <div className="font-medium text-base">P2PCraft</div>
+      <div className={cn(logoVariants({textVariant: text}))}>P2PCraft</div>
     </div>
   );
 };
