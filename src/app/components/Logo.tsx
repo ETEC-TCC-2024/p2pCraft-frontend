@@ -3,9 +3,9 @@ import LogoIcon from "./icon/LogoIcon";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-interface LogoProps extends VariantProps<typeof logoVariants> {}
+interface LogoProps extends VariantProps<typeof logoVariants> { }
 
-const logoVariants = cva("flex items-center justify-center max-w-fit font-medium text-base", {
+export const logoVariants = cva("flex items-center max-w-fit font-bold text-base w-44", {
   variants: {
     variant: {
       primary: "",
@@ -17,11 +17,11 @@ const logoVariants = cva("flex items-center justify-center max-w-fit font-medium
   },
 });
 
-export const Logo: React.FC<LogoProps> = ({variant, textVariant: text}) => {
+export const Logo: React.FC<LogoProps> = ({ variant, textVariant: text }) => {
   return (
-    <div className={cn(logoVariants({variant}))}>
+    <div className={cn(logoVariants({ variant }))}>
       <LogoIcon width={46} height={46}></LogoIcon>
-      <div className={cn(logoVariants({textVariant: text}))}>P2PCraft</div>
+      <div className={cn(logoVariants({ textVariant: text }))}>P2PCraft</div>
     </div>
   );
 };
