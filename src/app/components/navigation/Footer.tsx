@@ -2,7 +2,10 @@ import React from "react";
 import LogoIcon from "../icon/LogoIcon";
 import Button from "../Button";
 import { cva, VariantProps } from "class-variance-authority";
-
+import { cn } from "@/lib/utils";
+import GithubIcon from "../icon/GithubIcon";
+import YoutubeIcon from "../icon/YoutubeIcon";
+import DiscordIcon from "../icon/DiscordIcon";
 
 interface FooterProps extends VariantProps<typeof footerVariants> {}
 
@@ -10,15 +13,15 @@ const footerVariants = cva(" container flex mx-auto mt-auto items-center justify
   variants: {
     variant: {
       primary: "",
-      dark: "bg-green-ion-800",
+      dark: "bg-dark-green-900",
     },
   },
 });
-export const Footer : React.FC<FooterProps> = ({variant = "primary"} : FooterProps) => {
-  
-  //TODO replace logoIcon with the actuall icon
+
+export const Footer: React.FC<FooterProps> = ({ variant = "primary" }: FooterProps) => {
+
   return (
-    <div className="bg-green-ion-800 container flex mx-auto mt-auto items-center justify-between px-4 w-full">
+    <div className={cn(footerVariants({ variant }))}>
       <FooterLogo></FooterLogo>
       <div className="flex justify-between w-full">
         <Button variant="link">Sobre mim</Button>
@@ -26,9 +29,9 @@ export const Footer : React.FC<FooterProps> = ({variant = "primary"} : FooterPro
         <Button variant="link">FAQ</Button>
       </div>
       <div className="flex">
-        <LogoIcon width={64} height={64} />
-        <LogoIcon width={64} height={64} />
-        <LogoIcon width={64} height={64} />
+        <DiscordIcon width={78} height={78} />
+        <YoutubeIcon width={78} height={78} />
+        <GithubIcon width={78} height={78} />
       </div>
     </div>
   );
