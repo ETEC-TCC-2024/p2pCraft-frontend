@@ -1,12 +1,9 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { cva, VariantProps } from "class-variance-authority";
-import clsx from "clsx";
 import React, { ButtonHTMLAttributes, Children } from "react";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> { }
-
-//TODO: fix the texcolor, the primary button text color may not be black
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {}
 
 export const buttonVariants = cva("text-base py-4 rounded-lg ps-5 pe-5 font-bold", {
   variants: {
