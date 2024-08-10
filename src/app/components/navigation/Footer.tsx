@@ -7,9 +7,9 @@ import GithubIcon from "../icon/GithubIcon";
 import YoutubeIcon from "../icon/YoutubeIcon";
 import DiscordIcon from "../icon/DiscordIcon";
 
-interface FooterProps extends VariantProps<typeof footerVariants> {}
+interface FooterProps extends VariantProps<typeof footerVariants> { }
 
-const footerVariants = cva(" container flex mx-auto mt-auto items-center justify-between px-4 w-full", {
+const footerVariants = cva("container flex mx-auto mt-auto items-center justify-between px-4 w-full text-black-900", {
   variants: {
     variant: {
       primary: "",
@@ -41,8 +41,8 @@ export const FooterLogo = () => {
   return (
     <>
       <div className="flex items-center">
-        <LogoIcon width={64} height={64} />
-        <div className="min-w-fit text-white-50">© 2024 P2PCraft</div>
+        <LogoIcon className="w-16 h-16" />
+        <div className="md:min-w-fit text-black-900">© 2024 P2PCraft</div>
       </div>
     </>
   );
