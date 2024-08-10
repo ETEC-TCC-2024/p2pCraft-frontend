@@ -7,8 +7,8 @@ import Button from "./Button";
 const ButtonPage = () => {
   return (
     <>
-      <NavBar variant="primary"></NavBar>
       <BackgroundLogo></BackgroundLogo>
+      <NavBar variant="primary"></NavBar>
       <Button></Button>
       <Button></Button>
       <Button></Button>
@@ -21,8 +21,8 @@ const ButtonPage = () => {
 
 const BackgroundLogo = () => {
   return (
-    <LogoIcon className="top-0 right-0 -z-10 absolute"></LogoIcon>
-  )
-}
+      <LogoIcon className="top-0 right-0 left-0 max-w-[1440px] max-h-[1021px] m-auto absolute"></LogoIcon>
+  );
+};
 
 export default ButtonPage;
