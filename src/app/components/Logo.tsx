@@ -3,7 +3,7 @@ import LogoIcon from "./icon/LogoIcon";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-interface LogoProps extends VariantProps<typeof logoVariants> { }
+interface LogoProps extends VariantProps<typeof logoVariants> {}
 
 export const logoVariants = cva("flex items-center max-w-fit font-medium text-base w-44", {
   variants: {
