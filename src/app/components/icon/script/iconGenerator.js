@@ -57,7 +57,7 @@ function formatIconName(iconName = "") {
 
 function genIconComponent(iconName = "", svgCode = "") {
     svgCode = svgCode.replace("<svg ", "<svg className={className} ")
-
+    svgCode = svgCode.replace(/width=.[^ ]*/, "").replace(/height=.[^ ]*/, "")
     const iconScript = `import React from "react";
 import {IconProps} from "../Icon";
 const ${iconName}: React.FC <IconProps > = ({className}) => <div>${svgCode}</div>

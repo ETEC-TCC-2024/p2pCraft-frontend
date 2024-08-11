@@ -1,6 +1,6 @@
 import React from "react";
 import {IconProps} from "../Icon";
-const Speedometer: React.FC <IconProps > = ({className}) => <div><svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+const Speedometer: React.FC <IconProps > = ({className}) => <div><svg className={className}   viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_133_640)">
 <path d="M11.7635 5.27597C11.5113 5.27597 11.3068 5.52132 11.3068 5.82398V7.48765C11.3068 7.7903 11.5112 8.03565 11.7634 8.03565C12.0156 8.03565 12.2201 7.7903 12.2201 7.48765V5.82398C12.2201 5.52132 12.0157 5.27597 11.7635 5.27597Z" fill="#8AD7CC"/>
 <path d="M4.57411 13.9689C4.32009 13.9689 4.11417 14.216 4.11417 14.5209C4.11417 14.8257 4.32009 15.0728 4.57411 15.0728H5.93759C6.19161 15.0728 6.39754 14.8257 6.39754 14.5209C6.39754 14.216 6.19161 13.9689 5.93759 13.9689H4.57411Z" fill="#8AD7CC"/>

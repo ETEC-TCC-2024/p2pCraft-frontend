@@ -1,6 +1,6 @@
 import React from "react";
 import {IconProps} from "../Icon";
-const NoQueue: React.FC <IconProps > = ({className}) => <div><svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+const NoQueue: React.FC <IconProps > = ({className}) => <div><svg className={className}   viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_96_1443)">
 <path d="M16.2603 5.40482C15.5977 5.40482 15.0264 5.884 14.7979 6.54573C15.6662 6.93365 16.3289 7.77793 16.5574 8.80475C17.2657 8.64503 17.7913 7.96047 17.7913 7.13901C17.7913 6.15782 17.1058 5.40482 16.2603 5.40482Z" fill="#8AD7CC"/>
 <path d="M17.677 9.4664C17.3799 9.74022 17.0143 9.92277 16.603 9.99122C16.5345 10.6073 16.306 11.1778 15.9632 11.6341H18.4996C18.8195 11.6341 19.0708 11.3831 19.0708 11.0637V10.7899C19.0708 10.1738 18.3853 9.78586 17.677 9.4664Z" fill="#8AD7CC"/>
