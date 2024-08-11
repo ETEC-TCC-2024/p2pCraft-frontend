@@ -24,7 +24,8 @@ final_code += """   },
 },
 }"""
 
-#TODO make this add colors on a .ts file, also this should not be recreating the file everytime
-with open(file="tailwind.config.js", mode="+w") as final_file:
+#TODO rewrite this in js
+#TODO unfuck
+with open(file="tailwind.config.fuck", mode="+w") as final_file:
     final_file.write(final_code)
 
