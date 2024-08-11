@@ -4,9 +4,9 @@ import Button, { buttonVariants } from "../Button";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-interface NavbarProps extends VariantProps<typeof navbarVariants> { }
+interface NavbarProps extends VariantProps<typeof navbarVariants> {}
 
-const navbarVariants = cva("container mx-auto px-4 top-0  py-1 sticky flex justify-between items-center", {
+const navbarVariants = cva("container mx-auto h-fit px-4 top-0 py-1 sticky flex justify-between items-center", {
   variants: {
     variant: {
       primary: "",
@@ -17,13 +17,16 @@ const navbarVariants = cva("container mx-auto px-4 top-0  py-1 sticky flex justi
 
 export const NavBar: React.FC<NavbarProps> = ({ variant = "primary" }: NavbarProps) => {
   let buttonVariant: VariantProps<typeof buttonVariants>["textColor"];
-  buttonVariant = variant === "dark" ? "white" : "black"
+  if (variant === "dark") {
+    buttonVariant = "white";
+  } else {
+    buttonVariant = "black";
+  }
 
   return (
     <div className={cn(navbarVariants({ variant }))}>
       <Logo textVariant={variant == "dark" ? "white" : "primary"}></Logo>
-      <div className="md:flex gap-x-6">
-
+      <div className="flex gap-x-6">
         <Button variant="noBackground" textColor={buttonVariant}>
           Home
         </Button>
