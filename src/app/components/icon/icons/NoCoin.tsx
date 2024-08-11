@@ -1,6 +1,6 @@
 import React from "react";
 import {IconProps} from "../Icon";
-const NoCoin: React.FC <IconProps > = ({className}) => <div><svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+const NoCoin: React.FC <IconProps > = ({className}) => <div><svg className={className}   viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
         d="M6.09858 6.59872C4.79526 8.02194 4 9.91812 4 12C4 16.4183 7.58172 20 12 20C14.0289 20 15.8814 19.2447 17.2917 18"
         stroke="#8AD7CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />

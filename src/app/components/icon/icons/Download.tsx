@@ -1,6 +1,6 @@
 import React from "react";
 import {IconProps} from "../Icon";
-const Download: React.FC <IconProps > = ({className}) => <div><svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+const Download: React.FC <IconProps > = ({className}) => <div><svg className={className}   viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
         d="M11.7299 15.8458C11.8044 15.9202 11.9046 15.9603 12.002 15.9603C12.0994 15.9603 12.1996 15.9231 12.2741 15.8458L15.3528 12.767C15.5046 12.6152 15.5046 12.3718 15.3528 12.22C15.2011 12.0682 14.9576 12.0682 14.8058 12.22L12.3887 14.6372V5.38663C12.3887 5.17184 12.2168 5 12.002 5C11.7872 5 11.6154 5.17184 11.6154 5.38663V14.6372L9.19821 12.22C9.04642 12.0682 8.80298 12.0682 8.6512 12.22C8.49941 12.3718 8.49941 12.6152 8.6512 12.767L11.7299 15.8458Z"
         fill="#00473D" />
