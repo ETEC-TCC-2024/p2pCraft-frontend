@@ -7,7 +7,6 @@ namespace Text {
     extends HtmlHTMLAttributes<HTMLSpanElement>,
       VariantProps<typeof textVariants> {}
 }
-
 const textVariants = cva("", {
   variants: {
     textColor: {
