@@ -19,7 +19,7 @@ const ButtonPage = () => {
 
 const BackgroundLogo = () => {
   return (
-    <LogoIcon className="-top-5 -z-10 right-0 left-0 max-w-[1440px] max-h-screen m-auto absolute"></LogoIcon>
+      <LogoIcon className="-top-5 -z-10 right-0 left-0 max-w-[1440px] max-h-[1021px] m-auto absolute"></LogoIcon>
   );
 };
 
