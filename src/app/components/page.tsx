@@ -1,9 +1,9 @@
 import React from "react";
 import { NavBar } from "./navigation/NavBar";
 import { Footer } from "./navigation/Footer";
-import LogoIcon from "./icon/LogoIcon";
-import Text from "./Text";
-import Button from "./Button";
+import Text from "./text/Text";
+import Button from "./button/Button";
+import Icon from "./icon/Icon";
 
 const ButtonPage = () => {
   return (
@@ -22,7 +22,7 @@ const ButtonPage = () => {
 
 const BackgroundLogo = () => {
   return (
-    <LogoIcon className="-top-5 -z-10 right-0 left-0 max-w-[1440px] max-h-screen m-auto absolute"></LogoIcon>
+    <Icon.Logo className="-top-5 -z-10 right-0 left-0 max-w-[1440px] max-h-screen m-auto absolute"></Icon.Logo>
   );
 };
 
