@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 interface NavbarProps extends VariantProps<typeof navbarVariants> {}
 
-const navbarVariants = cva("container mx-auto h-fit px-4 top-0 py-1 sticky flex justify-between items-center", {
+const navbarVariants = cva("container mx-auto px-4 top-0 py-1 sticky flex justify-between items-center", {
   variants: {
     variant: {
       primary: "",
@@ -26,7 +26,7 @@ export const NavBar: React.FC<NavbarProps> = ({ variant = "primary" }: NavbarPro
   return (
     <div className={cn(navbarVariants({ variant }))}>
       <Logo textVariant={variant == "dark" ? "white" : "primary"}></Logo>
-      <div className="flex gap-x-6">
+      <div className="md:flex gap-x-6">
         <Button variant="noBackground" textColor={buttonVariant}>
           Home
         </Button>
