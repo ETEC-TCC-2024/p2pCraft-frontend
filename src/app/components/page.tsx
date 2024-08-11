@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "./Button";
 import { NavBar } from "./navigation/NavBar";
 
 const ButtonPage = () => {
