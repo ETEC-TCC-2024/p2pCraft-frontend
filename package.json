@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "gen:icon" : "node src/app/components/icon/script/iconGenerator.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
