@@ -20,7 +20,9 @@ function getIconComponentAsProperty(iconName) {
 
 
 function genRootIconComponent() {
-    let iconComponentScript = `import React, { lazy } from "react";
+    let iconComponentScript = `
+    // AUTO GENERATED 
+    import React, { lazy } from "react";
     export interface IconProps {
     className: string;
 }\n`
@@ -58,7 +60,9 @@ function formatIconName(iconName = "") {
 function genIconComponent(iconName = "", svgCode = "") {
     svgCode = svgCode.replace("<svg ", "<svg className={className} ")
     svgCode = svgCode.replace(/width=.[^ ]*/, "").replace(/height=.[^ ]*/, "")
-    const iconScript = `import React from "react";
+    const iconScript = `
+// AUTO GENERATED
+import React from "react";
 import {IconProps} from "../Icon";
 const ${iconName}: React.FC <IconProps > = ({className}) => <div>${svgCode}</div>
 export default ${iconName};
