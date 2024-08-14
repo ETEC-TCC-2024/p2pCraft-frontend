@@ -24,7 +24,7 @@ function genRootIconComponent() {
     // AUTO GENERATED 
     import React, { lazy } from "react";
     export interface IconProps {
-    className: string;
+    className?: string;
 }\n`
 
     let iconKeys = "type iconKeys = "

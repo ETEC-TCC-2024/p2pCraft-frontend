@@ -2,7 +2,7 @@
     // AUTO GENERATED 
     import React, { lazy } from "react";
     export interface IconProps {
-    className: string;
+    className?: string;
 }
 type iconKeys = "Default" | "ArrowLeft" | "ArrowRight" | "ClipboardOutline1" | "Discord" | "Download" | "Gear" | "Github" | "Lock" | "Logo" | "NoQueue" | "NoCoin" | "OpenSource" | "Pause" | "People" | "Play" | "Signal" | "Speedometer" | "Start" | "Stop" | "TextCursor" | "Youtube";
 
