@@ -5,6 +5,8 @@ import Text from "./text/Text";
 import Button from "./button/Button";
 import Icon from "./icon/Icon";
 import FeatureSection from "./section/FeatureSection";
+import AboutMe from "./about/AboutMe";
+import TextSection from "./section/TextSection";
 
 const ButtonPage = () => {
   return (
@@ -16,6 +18,22 @@ const ButtonPage = () => {
         <BackgroundLogo />
         <MainText />
         <MainFeaturesSection />
+        <AboutMe.Root>
+          <div className="w-[472px] h-[530px] bg-green-ion-800"></div>
+          {/* <AboutMe.ImageSection>
+            <AboutMe.Image imgPath="assets/img1.png" />
+            <AboutMe.Image imgPath="assets/img2.png" />
+            <AboutMe.Image imgPath="assets/img3.png" />
+          </AboutMe.ImageSection> */}
+          <AboutMe.MainTextSection>
+            <TextSection.Title> Sobre Mim</TextSection.Title>
+            <TextSection.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin vitae ipsum ac luctus. Mauris ac semper libero. Nulla facilisi. Nam bibendum interdum risus, at ultricies felis pulvinar a.<br />
+              Donec fringilla erat auctor felis pharetra, ut consectetur massa varius. Quisque ultricies vitae urna quis lobortis. Fusce bibendum orci dictum rhoncus rhoncus. Aliquam gravida tincidunt lectus sed rhoncus. <br />
+              Etiam tincidunt mi quis ligula euismod commodo. Fusce eu consequat mi, sed egestas lacus. Sed eget accumsan sem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. <br />
+              Praesent egestas tellus et purus fringilla ultrices.</TextSection.Body>
+          </AboutMe.MainTextSection>
+        </AboutMe.Root>
+
       </main>
       <Footer></Footer>
     </>
