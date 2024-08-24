@@ -22,8 +22,12 @@ interface FeatureSectionProps {
 
 const Root = ({ iconName, children }: FeatureSectionProps) => {
   return (
-    <div className="flex shadow-md backdrop-blur-sm h-full bg-green-ion-100 bg-opacity-50 rounded-2xl px-6 py-4 w-[510px] min-h-[210px]">
-      <IconBackground iconName={iconName!} className="min-w-12 min-h-12" variant="halfRounded" />
+    <div className="flex shadow-lg backdrop-blur-sm h-full bg-green-ion-100 bg-opacity-50 rounded-2xl px-6 py-4 w-[510px] min-h-[210px]">
+      <IconBackground
+        iconName={iconName!}
+        className="overflow-hidden min-w-12 min-h-12"
+        variant="halfRounded"
+      />
       <div className="flex flex-col ml-6 items-start ">{children}</div>
     </div>
   );
