@@ -4,6 +4,7 @@ import { Footer } from "./navigation/Footer";
 import Text from "./text/Text";
 import Button from "./button/Button";
 import Icon from "./icon/Icon";
+import FeatureSection from "./section/FeatureSection";
 
 const ButtonPage = () => {
   return (
@@ -12,8 +13,9 @@ const ButtonPage = () => {
         <NavBar variant="primary"></NavBar>
       </header>
       <main>
-        <BackgroundLogo></BackgroundLogo>
-        <MainText></MainText>
+        <BackgroundLogo />
+        <MainText />
+        <MainFeaturesSection />
       </main>
       <Footer></Footer>
     </>
@@ -23,6 +25,58 @@ const ButtonPage = () => {
 const BackgroundLogo = () => {
   return (
     <Icon.Logo className="-top-5 -z-10 right-0 left-0 max-w-[1440px] max-h-screen m-auto absolute"></Icon.Logo>
+  );
+};
+
+const MainFeaturesSection = () => {
+  return (
+    <div className="mt-[30vh]">
+      <div className="flex flex-wrap flex-row relative mx-auto gap-x-32 gap-y-14 container items-center justify-center">
+        <FeatureSection.Root iconName="Signal">
+          <FeatureSection.Title>Baixa Latencia</FeatureSection.Title>
+          <FeatureSection.Body>
+            Como os jogadores são a própria host, a distancia da comunicação entre o servidor e os
+            players normalmente diminui, ou seja o tempo de resposta é curto.
+          </FeatureSection.Body>
+          <FeatureSection.Footer>
+            <Button variant={"link"}>Ver mais</Button>
+          </FeatureSection.Footer>
+        </FeatureSection.Root>
+
+        <FeatureSection.Root iconName="NoQueue">
+          <FeatureSection.Title>Sem Filas</FeatureSection.Title>
+          <FeatureSection.Body>
+            Chega de esperas pra abrir seu servidor, com a P2PCraft é como se seu servidor
+            estivesse sempre aberto!
+          </FeatureSection.Body>
+          <FeatureSection.Footer>
+            <Button variant={"link"}>Ver mais</Button>
+          </FeatureSection.Footer>
+        </FeatureSection.Root>
+
+        <FeatureSection.Root iconName="Speedometer">
+          <FeatureSection.Title>Alta Performance*</FeatureSection.Title>
+          <FeatureSection.Body>
+            Você sabia que com apenas 6gb de ram é possível ser uma excelente host sem prejudicar
+            sua gameplay? A P2PCraft é perfeita para pequenos grupos de 4-8 jogadores.
+          </FeatureSection.Body>
+          <FeatureSection.Footer>
+            <Button variant={"link"}>Ver mais</Button>
+          </FeatureSection.Footer>
+        </FeatureSection.Root>
+
+        <FeatureSection.Root iconName="OpenSource">
+          <FeatureSection.Title>Código Aberto</FeatureSection.Title>
+          <FeatureSection.Body>
+            Ficou desconfiado com alguma funcionalidade? A P2PCraft possui um código 100% aberto,
+            basta acessar nossa organização no Github.
+          </FeatureSection.Body>
+          <FeatureSection.Footer>
+            <Button variant={"link"}>Ver mais</Button>
+          </FeatureSection.Footer>
+        </FeatureSection.Root>
+      </div>
+    </div>
   );
 };
 
@@ -42,7 +96,6 @@ const MainText = () => {
               Hospede servidores de Minecraft de graça usando a P2PCraft fornecemos uma arquitetura
               descentralizada de hosting que transforma os próprios players na host.
             </Text>
-
             <Button variant="primary">Começar Agora</Button>
           </div>
         </div>
