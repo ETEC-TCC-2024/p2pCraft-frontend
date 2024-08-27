@@ -3,6 +3,7 @@ import Button from "../button/Button";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import Icon from "../icon/Icon";
+import { SocialNetworks } from "./SocialNetworks";
 
 interface FooterProps extends VariantProps<typeof footerVariants> {}
 
@@ -22,27 +23,21 @@ export const Footer: React.FC<FooterProps> = ({ variant = "primary" }: FooterPro
   return (
     <div className={cn(footerVariants({ variant }))}>
       <FooterLogo></FooterLogo>
-      <div className="flex justify-between w-full">
+      <div className="flex justify-between items-stretch mx-24 w-full">
         <Button variant="link">Sobre mim</Button>
         <Button variant="link">Código</Button>
         <Button variant="link">FAQ</Button>
       </div>
-      <div className="flex">
-        <Icon.Discord className="w-[78px] h-[78px]" />
-        <Icon.Youtube className="w-[78px] h-[78px]" />
-        <Icon.Github className="w-[78px] h-[78px]" />
-      </div>
+      <SocialNetworks />
     </div>
   );
 };
 
 export const FooterLogo = () => {
   return (
-    <>
-      <div className="flex items-center">
-        <Icon.Logo className="w-16 h-16" />
-        <div className="md:min-w-fit text-black-900">© 2024 P2PCraft</div>
-      </div>
-    </>
+    <div className="flex items-center min-w-fit">
+      <Icon.Logo className="w-16 h-16" />
+      <div className="text-black-900">© 2024 P2PCraft</div>
+    </div>
   );
 };
