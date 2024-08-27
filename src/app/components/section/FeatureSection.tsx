@@ -2,6 +2,7 @@ import React, { forwardRef, ReactNode } from "react";
 import Text from "../text/Text";
 import IconBackground from "../icon/IconBackground";
 import { iconKeys } from "../icon/Icon";
+import Button from "../button/Button";
 
 export const Title: React.FC<Text.TextProps> = ({ children }) => {
   return (
@@ -12,7 +13,12 @@ export const Title: React.FC<Text.TextProps> = ({ children }) => {
 };
 
 export const Body: React.FC<Text.TextProps> = ({ children }) => {
-  return <Text className="mb-auto">{children}</Text>;
+  return (
+    <>
+      <Text className="mb-auto">{children}</Text>
+      <Button variant="link" className="mr-0">Ver mais</Button>
+    </>
+  );
 };
 
 interface FeatureSectionProps {
