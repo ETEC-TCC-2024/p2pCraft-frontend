@@ -58,7 +58,89 @@ function formatIconName(iconName = "") {
 }
 
 function genIconComponent(iconName = "", svgCode = "") {
+
     svgCode = svgCode.replace("<svg ", "<svg className={className} ")
+
+
+    const dirtyCleanSvgPropMap = {
+        'accent-height': 'accentHeight',
+        'alignment-baseline': 'alignmentBaseline',
+        'arabic-form': 'arabicForm',
+        'baseline-shift': 'baselineShift',
+        'cap-height': 'capHeight',
+        'clip-path': 'clipPath',
+        'clip-rule': 'clipRule',
+        'color-interpolation': 'colorInterpolation',
+        'clip-path': 'clipPath',
+        'clip-rule': 'clipRule',
+        'color-interpolation': 'colorInterpolation',
+        'color-interpolation-filters': 'colorInterpolationFilters',
+        'color-profile': 'colorProfile',
+        'color-rendering': 'colorRendering',
+        'fill-opacity': 'fillOpacity',
+        'fill-rule': 'fillRule',
+        'flood-color': 'floodColor',
+        'flood-opacity': 'floodOpacity',
+        'font-family': 'fontFamily',
+        'font-size': 'fontSize',
+        'font-size-adjust': 'fontSizeAdjust',
+        'font-stretch': 'fontStretch',
+        'font-style': 'fontStyle',
+        'font-variant': 'fontVariant',
+        'font-weight': 'fontWeight',
+        'glyph-name': 'glyphName',
+        'glyph-orientation-horizontal': 'glyphOrientationHorizontal',
+        'glyph-orientation-vertical': 'glyphOrientationVertical',
+        'horiz-adv-x': 'horizAdvX',
+        'horiz-origin-x': 'horizOriginX',
+        'marker-end': 'markerEnd',
+        'marker-mid': 'markerMid',
+        'marker-start': 'markerStart',
+        'overline-position': 'overlinePosition',
+        'overline-thickness': 'overlineThickness',
+        'panose-1': 'panose1',
+        'paint-order': 'paintOrder',
+        'stop-color': 'stopColor',
+        'stop-opacity': 'stopOpacity',
+        'strikethrough-position': 'strikethroughPosition',
+        'strikethrough-thickness': 'strikethroughThickness',
+        'stroke-dasharray': 'strokeDasharray',
+        'stroke-dashoffset': 'strokeDashoffset',
+        'stroke-linecap': 'strokeLinecap',
+        'stroke-linejoin': 'strokeLinejoin',
+        'stroke-miterlimit': 'strokeMiterlimit',
+        'stroke-opacity': 'strokeOpacity',
+        'stroke-width': 'strokeWidth',
+        'text-anchor': 'textAnchor',
+        'text-decoration': 'textDecoration',
+        'text-rendering': 'textRendering',
+        'underline-position': 'underlinePosition',
+        'underline-thickness': 'underlineThickness',
+        'unicode-bidi': 'unicodeBidi',
+        'unicode-range': 'unicodeRange',
+        'units-per-em': 'unitsPerEm',
+        'v-alphabetic': 'vAlphabetic',
+        'v-hanging': 'vHanging',
+        'v-ideographic': 'vIdeographic',
+        'v-mathematical': 'vMathematical',
+        'vert-adv-y': 'vertAdvY',
+        'vert-origin-x': 'vertOriginX',
+        'vert-origin-y': 'vertOriginY',
+        'v-alphabetic': 'vAlphabetic',
+        'v-hanging': 'vHanging',
+        'v-ideographic': 'vIdeographic',
+        'v-mathematical': 'vMathematical',
+        'vert-adv-y': 'vertAdvY',
+        'vert-origin-x': 'vertOriginY',
+        'vert-origin-y': 'vertOriginY',
+        'word-spacing': 'wordSpacing',
+        'writing-mode': 'writingMode',
+        'x-height': 'xHeight'
+    }
+
+    for (const dirtyProp in dirtyCleanSvgPropMap) {
+        svgCode = svgCode.replaceAll(dirtyProp, dirtyCleanSvgPropMap[dirtyProp])
+    }
     svgCode = svgCode.replace(/width=.[^ ]*/, "").replace(/height=.[^ ]*/, "")
     const iconScript = `
 // AUTO GENERATED
