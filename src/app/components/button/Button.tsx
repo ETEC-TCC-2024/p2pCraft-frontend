@@ -30,11 +30,9 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <div className="flex">
-      <button {...props} className={cn(buttonVariants({ variant, textColor }), className)}>
-        {children}
-      </button>
-    </div>
+    <button {...props} className={cn(buttonVariants({ variant, textColor }), className)}>
+      {children}
+    </button>
   );
 };
 
