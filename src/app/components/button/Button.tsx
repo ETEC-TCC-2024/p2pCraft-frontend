@@ -26,11 +26,13 @@ export const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   textColor = "white",
   children,
+  className,
+  ...props
 }) => {
   return (
-    <div className="flex ml-auto mr-auto">
-      <button className={cn(buttonVariants({ variant, textColor }))}>{children}</button>
-    </div>
+    <button {...props} className={cn(buttonVariants({ variant, textColor }), className)}>
+      {children}
+    </button>
   );
 };
 

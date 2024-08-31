@@ -1,5 +1,5 @@
-import React from "react";
-import { Logo, logoVariants } from "../Logo";
+import React, { Children, ReactNode } from "react";
+import { Logo } from "../Logo";
 import Button, { buttonVariants } from "../button/Button";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
@@ -21,28 +21,26 @@ const navbarVariants = cva(
 export const NavBar: React.FC<NavbarProps> = ({ variant = "primary" }: NavbarProps) => {
   let buttonVariant: VariantProps<typeof buttonVariants>["textColor"];
   buttonVariant = variant === "dark" ? "white" : "black";
-
+  const NavBarButton: React.FC<{ children: ReactNode }> = ({ children }) => {
+    return (
+      <Button variant="noBackground" textColor={buttonVariant}>
+        {children}
+      </Button>
+    );
+  };
   return (
     <div className={cn(navbarVariants({ variant }))}>
       <Logo textVariant={variant == "dark" ? "white" : "primary"}></Logo>
       <div className="md:flex gap-x-6">
-        <Button variant="noBackground" textColor={buttonVariant}>
-          Home
-        </Button>
+        <NavBarButton>Início</NavBarButton>
 
-        <Button variant="noBackground" textColor={buttonVariant}>
-          About
-        </Button>
+        <NavBarButton>Sobre mim</NavBarButton>
 
-        <Button variant="noBackground" textColor={buttonVariant}>
-          Contact
-        </Button>
+        <NavBarButton>Contato</NavBarButton>
 
-        <Button variant="noBackground" textColor={buttonVariant}>
-          FAQ
-        </Button>
+        <NavBarButton>FAQ</NavBarButton>
 
-        <Button variant="primary">Play</Button>
+        <Button variant="primary">Entrar</Button>
       </div>
     </div>
   );
