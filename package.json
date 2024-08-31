@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "gen:icon" : "node src/app/components/icon/script/iconGenerator.js",
+    "gen:icon": "node src/app/components/icon/script/iconGenerator.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -13,6 +13,7 @@
   "dependencies": {
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "framer-motion": "^11.3.31",
     "js-convert-case": "^4.2.0",
     "next": "14.2.4",
     "react": "^18",
