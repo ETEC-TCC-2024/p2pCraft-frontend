@@ -16,7 +16,7 @@ export const Body: React.FC<Text.TextProps> = ({ children }) => {
   return (
     <>
       <Text className="mb-auto">{children}</Text>
-      <Button variant="link" className="mr-0 pl-0">Ver mais</Button>
+      <Button variant="link" className="mr-0 p-0 pb-2">Ver mais</Button>
     </>
   );
 };
