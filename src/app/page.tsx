@@ -8,8 +8,9 @@ import { NavBar } from "./components/navigation/NavBar";
 import { SocialNetworks } from "./components/navigation/SocialNetworks";
 import FeatureSection from "./components/section/FeatureSection";
 import TextSection from "./components/section/TextSection";
+import Link from "next/link";
 
-const ButtonPage = () => {
+const HomePage = () => {
   return (
     <>
       <header>
@@ -112,11 +113,14 @@ const MainText = () => {
             Hospede servidores de Minecraft de graça usando a P2PCraft fornecemos uma arquitetura
             descentralizada de hosting que transforma os próprios players na host.
           </Text>
-          <Button>Começar Agora</Button>
+          <Link href="login">
+            <Button>Começar Agora</Button>
+
+          </Link>
         </div>
       </div>
     </div>
   );
 };
 
-export default ButtonPage;
+export default HomePage;
