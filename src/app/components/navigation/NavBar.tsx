@@ -3,8 +3,9 @@ import { Logo } from "../Logo";
 import Button, { buttonVariants } from "../button/Button";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
-interface NavbarProps extends VariantProps<typeof navbarVariants> {}
+interface NavbarProps extends VariantProps<typeof navbarVariants> { }
 
 const navbarVariants = cva(
   "container mx-auto px-4 top-0 py-1 sticky flex justify-between items-center",
@@ -39,8 +40,10 @@ export const NavBar: React.FC<NavbarProps> = ({ variant = "primary" }: NavbarPro
         <NavBarButton>Contato</NavBarButton>
 
         <NavBarButton>FAQ</NavBarButton>
+        <Link href="login">
+          <Button variant="primary">Entrar</Button>
+        </Link>
 
-        <Button variant="primary">Entrar</Button>
       </div>
     </div>
   );
