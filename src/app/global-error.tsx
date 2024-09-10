@@ -13,8 +13,8 @@ export default function Error() {
         </Text><br></br>
         <Text size="extra_large_x3">Se o erro persistir, por favor entre em contato com nosso suporte</Text>
         <Link href="/">
+            Ir para página inicial
             <Button variant="primary">
-                Ir para página inicial
             </Button>
         </Link>
     </div>
