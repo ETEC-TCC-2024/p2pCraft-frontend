@@ -11,10 +11,11 @@ export const LoginPage = () => {
     return <>
         <header><NavBar variant={"primary"} /></header>
         <div className="flex flex-col justify-center items-center ">
-            <form className="flex flex-col justify-center items-center px-9 py-12">
+            <form className="flex flex-col justify-center items-center px-9 py-12" action={"/server"}>
                 <DefaultLabelAndField labelName="email" labelText="Email" fieldType="email" />
                 <DefaultLabelAndField labelName="password" labelText="Senha" fieldType="password" />
                 <Button variant={"link"} className="relative p-0 ml-auto" type="button">Esqueceu sua senha?</Button>
+
                 <Button variant={"green"} className="m-9" type="submit">Entrar</Button>
                 <div className="w-fit">
                     <Text>Novo aqui?</Text>
