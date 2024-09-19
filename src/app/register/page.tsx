@@ -11,7 +11,7 @@ export const LoginPage = () => {
     return <>
         <header><NavBar variant={"primary"} /></header>
         <div className="flex flex-col justify-center items-center ">
-            <form className="flex flex-col justify-center items-center px-9 py-12">
+            <form className="flex flex-col justify-center items-center px-9 py-12" action={"/login"}>
                 <div className="flex flex-row gap-x-9">
                     <DefaultLabelAndField labelName="name" fieldType="text" labelText="Nome"></DefaultLabelAndField>
                     <DefaultLabelAndField labelName="email" fieldType="text" labelText="Email"></DefaultLabelAndField>
