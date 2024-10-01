@@ -1,8 +1,9 @@
 import React from "react"
 import Server from "./Server"
-import Text from "../text/Text"
+import Text from "../text/TextComponent"
 import { cn } from "@/lib/utils"
 import IconBackground from "../icon/IconBackground"
+import Link from "next/link"
 
 
 type ServerStatuses = "online" | "offline"
@@ -12,18 +13,21 @@ interface ServerStatusProps {
     serverStatus: ServerStatuses
 }
 
-
-
 const ServerStatus: React.FC<ServerStatusProps> = ({ server, serverStatus }) => {
     const textDefaultClassName = "text-white-50 font-semibold font-sans"
-    return <div className="w-96 bg-dark-green-600 flex gap-2 pr-3 justify-between">
-        <StatusBar status={serverStatus} />
-        <div className="flex flex-1 flex-col my-4">
-            <Text className={cn(textDefaultClassName, "text-3xl")}>{server.name}</Text>
-            <Text className={textDefaultClassName}>{server.minecraftVersion}</Text>
+    return <Link href={`/server/${server.name}`}>
+        <div className={cn("w-96 bg-dark-green-600 flex gap-2 pr-3 justify-between hover:bg-gradient-to-r from-[1%] to-20% to-bg-dark-green-600", {
+            "from-green-ion-500/50": serverStatus === "online",
+            "from-red-500/50": serverStatus === "offline"
+        })}>
+            <StatusBar status={serverStatus} />
+            <div className="flex flex-1 flex-col my-4">
+                <Text className={cn(textDefaultClassName, "text-3xl")}>{server.name}</Text>
+                <Text className={textDefaultClassName}>{server.minecraftVersion}</Text>
+            </div>
+            <StatusIcon status={serverStatus}></StatusIcon>
         </div>
-        <StatusIcon status={serverStatus}></StatusIcon>
-    </div>
+    </Link>
 }
 
 const StatusBar: React.FC<{ status: ServerStatuses }> = ({ status }) => {

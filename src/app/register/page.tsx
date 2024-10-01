@@ -3,7 +3,7 @@ import LabelAndField from "../components/form/LabelAndField";
 import { Footer } from "../components/navigation/Footer";
 import { NavBar } from "../components/navigation/NavBar";
 import Button from "../components/button/Button";
-import Text from "../components/text/Text";
+import Text from "../components/text/TextComponent";
 import Link from "next/link";
 
 

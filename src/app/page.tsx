@@ -1,5 +1,5 @@
 import React from "react";
-import Text from "./components/text/Text";
+import Text from "./components/text/TextComponent";
 import AboutMe from "./components/about/AboutMe";
 import Button from "./components/button/Button";
 import Icon from "./components/icon/Icon";

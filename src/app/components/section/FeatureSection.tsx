@@ -1,5 +1,5 @@
 import React, { forwardRef, ReactNode } from "react";
-import Text from "../text/Text";
+import Text from "../text/TextComponent";
 import IconBackground from "../icon/IconBackground";
 import { iconKeys } from "../icon/Icon";
 import Button from "../button/Button";

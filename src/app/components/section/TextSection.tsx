@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import Text from "../text/Text";
+import Text from "../text/TextComponent";
 import React, { ReactNode } from "react";
 
 interface TextSectionProps {
