@@ -8,7 +8,7 @@ import Link from "next/link";
 import { register } from "../actions/auth";
 
 
-export const RegisterPage = () => {
+const RegisterPage = () => {
     return <>
         <header><NavBar variant={"primary"} /></header>
         <div className="flex flex-col justify-center items-center ">

@@ -8,7 +8,7 @@ import Link from "next/link";
 import { login } from "@/app/actions/auth";
 
 
-export const LoginPage = () => {
+const LoginPage = () => {
   return (
     <>
       <header>
