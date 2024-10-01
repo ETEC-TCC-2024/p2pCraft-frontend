@@ -3,9 +3,10 @@ import LabelAndField from "../components/form/LabelAndField";
 import { Footer } from "../components/navigation/Footer";
 import { NavBar } from "../components/navigation/NavBar";
 import Button from "../components/button/Button";
-import Text from "../components/text/Text";
+import Text from "../components/text/TextComponent";
 import Link from "next/link";
 import { login } from "@/app/actions/auth";
+
 
 export const LoginPage = () => {
   return (
@@ -36,7 +37,7 @@ export const LoginPage = () => {
       <Footer variant="primary" />
     </>
   );
-};
+}
 
 interface LabelAndFieldProps {
   labelText: string;

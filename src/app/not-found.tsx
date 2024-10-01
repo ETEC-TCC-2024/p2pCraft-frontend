@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Button from "./components/button/Button"
-import Text from "./components/text/Text"
+import Text from "./components/text/TextComponent"
 export default function NotFound() {
     return <div className="flex flex-col  gap-y-10 items-center justify-center mx-auto">
         <div>

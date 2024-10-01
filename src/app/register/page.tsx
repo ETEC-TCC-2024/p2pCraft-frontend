@@ -3,15 +3,16 @@ import LabelAndField from "../components/form/LabelAndField";
 import { Footer } from "../components/navigation/Footer";
 import { NavBar } from "../components/navigation/NavBar";
 import Button from "../components/button/Button";
-import Text from "../components/text/Text";
+import Text from "../components/text/TextComponent";
 import Link from "next/link";
+import { register } from "../actions/auth";
 
 
-export const LoginPage = () => {
+export const RegisterPage = () => {
     return <>
         <header><NavBar variant={"primary"} /></header>
         <div className="flex flex-col justify-center items-center ">
-            <form className="flex flex-col justify-center items-center px-9 py-12">
+            <form className="flex flex-col justify-center items-center px-9 py-12" action={register}>
                 <div className="flex flex-row gap-x-9">
                     <DefaultLabelAndField labelName="name" fieldType="text" labelText="Nome"></DefaultLabelAndField>
                     <DefaultLabelAndField labelName="email" fieldType="text" labelText="Email"></DefaultLabelAndField>
@@ -43,4 +44,4 @@ const DefaultLabelAndField: React.FC<LabelAndFieldProps> = ({ labelName, labelTe
         </div>
     </LabelAndField >
 }
-export default LoginPage;   
+export default RegisterPage;   
