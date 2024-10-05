@@ -120,6 +120,6 @@ export const ImageSectionImage: React.FC<ImageSectionImageProps> = ({
   alt = "",
 }) => {
   return (
-      <NextImage src={imgPath} alt={alt} width={472} height={530} className="rounded-2xl h-full" />
+    <NextImage src={imgPath} alt={alt} width={472} height={530} className="rounded-2xl h-full" />
   );
 };
