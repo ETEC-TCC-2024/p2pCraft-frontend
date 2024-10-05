@@ -1,12 +1,13 @@
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
+import { API_URL } from "./app/actions/config";
 
 const publicRoutes = ["/home", "/register", "/", "/signup", "/login"];
 const CLIENT_HOME_PAGE = "/client";
 
 export default async function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
-  const isProtectedRoute = !publicRoutes.includes(path);
+  const isProtectedRoute = !publicRoutes.includes(path) && req.nextUrl.basePath == API_URL;
 
   const currentToken = cookies().get("session")?.value;
 
