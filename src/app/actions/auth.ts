@@ -5,11 +5,21 @@ import { ClientRegisterDto } from "@/dto/client/ClientRegisterDto";
 import { createSession, deleteSession } from "@/lib/Session";
 import { redirect } from "next/navigation";
 import { API_URL } from "./config";
+import { LoginState, LoginValidator } from "@/lib/validator/LoginValidator";
+import { RegisterState, RegisterValidator } from "@/lib/validator/RegisterValidator";
 
-export async function login(formData: FormData) {
-  //todo validation
-  const email = formData.get("email")?.toString()!;
-  const password = formData.get("password")?.toString()!;
+export async function login(formState: LoginState, formData: FormData) {
+  const validateFields = LoginValidator.safeParse({
+    email: formData.get("email"),
+    password: formData.get("password"),
+  });
+
+  if (!validateFields.success) {
+    return {
+      errors: validateFields.error.flatten().fieldErrors,
+    };
+  }
+  const { email, password } = validateFields.data;
   const loginDto = new ClientLoginDto(email, password);
 
   const response = await fetch(API_URL + "/login", {
@@ -22,13 +32,19 @@ export async function login(formData: FormData) {
 
   const responseJson = await response.json();
 
-  const tokenDto = new ClientTokenDto(responseJson["token"]);
+  if (!response.ok) {
+    return getError(response);
+  }
 
-  createSession(tokenDto.token);
+  createSession(responseJson["token"]);
   redirect("/client");
 }
 
-export async function register(registerDto: ClientRegisterDto) {
+export async function register(
+  formState: RegisterState,
+  formData: FormData,
+  registerDto: ClientRegisterDto
+) {
   const response = await fetch(API_URL + "/signup", {
     method: "POST",
     headers: {
@@ -37,7 +53,18 @@ export async function register(registerDto: ClientRegisterDto) {
     body: JSON.stringify(registerDto),
   });
 
+  const validateFields = RegisterValidator.safeParse({
+    email: formData.get("email"),
+    password: formData.get("password"),
+    confirmPassword: formData.get("confirmPassword"),
+    name: formData.get("name"),
+  });
+
   const responseJson = await response.json();
+
+  if (!response.ok) {
+    return getError(response);
+  }
 
   const tokenDto = new ClientTokenDto(responseJson["token"]);
 
@@ -49,4 +76,27 @@ export async function register(registerDto: ClientRegisterDto) {
 export async function logout() {
   deleteSession();
   redirect("/login");
+}
+
+async function getError(response: Response) {
+  //TODO Validation chain
+
+  const responseJson = await response.json();
+  if (!response.ok) {
+    const errorDescription = responseJson["description"] as string;
+    if (errorDescription.includes("email")) {
+      return {
+        errors: {
+          email: [`Invalid email`],
+        },
+      };
+    }
+    if (errorDescription.includes("password")) {
+      return {
+        errors: {
+          password: [`Invalid password`],
+        },
+      };
+    }
+  }
 }
