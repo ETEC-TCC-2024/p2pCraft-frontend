@@ -84,7 +84,6 @@ const DefaultLabelAndField: React.FC<LabelAndFieldProps> = ({
   invalid,
   formState,
 }) => {
-  console.log(formState);
   return (
     <LabelAndField
       className="min-w-[10%] max-w-[100%] w-96 mt-9"
