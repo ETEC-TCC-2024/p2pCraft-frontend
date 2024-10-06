@@ -30,12 +30,12 @@ export async function login(formState: LoginState, formData: FormData) {
     body: JSON.stringify(loginDto),
   });
 
-  const responseJson = await response.json();
 
   if (!response.ok) {
     return getError(response);
   }
 
+  const responseJson = await response.json();
   createSession(responseJson["token"]);
   redirect("/client");
 }
@@ -60,11 +60,11 @@ export async function register(
     name: formData.get("name"),
   });
 
-  const responseJson = await response.json();
-
+  
   if (!response.ok) {
     return getError(response);
   }
+  const responseJson = await response.json();
 
   const tokenDto = new ClientTokenDto(responseJson["token"]);
 
