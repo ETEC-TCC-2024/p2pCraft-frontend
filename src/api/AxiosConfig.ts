@@ -9,6 +9,7 @@ axios.interceptors.request.use(
 
     if (token) {
       if (isApiRequest) {
+        console.log("sim mano")
         config.headers.Authorization = `Bearer ${token}`;
       }
     }
