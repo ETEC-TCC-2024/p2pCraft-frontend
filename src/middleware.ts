@@ -7,8 +7,8 @@ const CLIENT_HOME_PAGE = "/client";
 
 export default async function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
-  const isProtectedRoute = !publicRoutes.includes(path) && req.nextUrl.basePath == API_URL;
-
+  const isProtectedRoute = !publicRoutes.includes(path);
+  const isApiRequest = req.nextUrl.basePath == API_URL;
   const currentToken = cookies().get("session")?.value;
 
   if (isProtectedRoute && !currentToken) {
@@ -21,7 +21,7 @@ export default async function middleware(req: NextRequest) {
     if (!isProtectedRoute) {
       return NextResponse.redirect(new URL(CLIENT_HOME_PAGE, req.nextUrl));
     }
-    req.headers.set("Authorization", `Bearer ${currentToken}`);
+    if (isApiRequest) req.headers.set("Authorization", `Bearer ${currentToken}`);
   }
 
   return NextResponse.next();
