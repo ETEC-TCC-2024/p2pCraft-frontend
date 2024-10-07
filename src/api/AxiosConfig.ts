@@ -2,14 +2,19 @@ import { API_URL } from "@/app/actions/config";
 import axios from "axios";
 import { cookies } from "next/headers";
 
-axios.interceptors.request.use(
+const axiosInstance = axios.create({
+  baseURL: API_URL,
+  timeout: 5000,
+  headers: { 'Content-Type': 'application/json' }
+
+})
+axiosInstance.interceptors.request.use(
   (config) => {
     const isApiRequest = config.baseURL == API_URL;
     const token = cookies().get("session")?.value;
 
     if (token) {
       if (isApiRequest) {
-        console.log("sim mano")
         config.headers.Authorization = `Bearer ${token}`;
       }
     }
@@ -19,3 +24,6 @@ axios.interceptors.request.use(
     return Promise.reject(error);
   }
 );
+
+
+export default axiosInstance
