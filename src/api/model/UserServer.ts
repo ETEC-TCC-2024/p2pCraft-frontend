@@ -4,10 +4,15 @@ class UserServer {
     uuid!: string;
     name!: string;
     staticIp!: string;
-    mapURL!: string;
     online!: boolean;
-    userRole!: UserServerRoles
-    
+    userRole!: UserServerRoles;
+    mapConfig!: MapConfig;
+
+}
+export class MapConfig {
+    mapUrl!: string;
+    seed!: string;
+    version!: string;
 }
 
 export default UserServer;
