@@ -4,9 +4,10 @@ import { ClientLoginDto } from "@/dto/client/ClientLoginDto";
 import { ClientRegisterDto } from "@/dto/client/ClientRegisterDto";
 import { createSession, deleteSession } from "@/lib/Session";
 import { redirect } from "next/navigation";
-import { API_URL } from "./config";
 import { LoginState, LoginValidator } from "@/lib/validator/LoginValidator";
 import { RegisterState, RegisterValidator } from "@/lib/validator/RegisterValidator";
+import UserService from "@/api/service/UserService";
+import { AxiosResponse } from "axios";
 
 export async function login(formState: LoginState, formData: FormData) {
   const validateFields = LoginValidator.safeParse({
@@ -19,24 +20,18 @@ export async function login(formState: LoginState, formData: FormData) {
       errors: validateFields.error.flatten().fieldErrors,
     };
   }
+
   const { email, password } = validateFields.data;
   const loginDto = new ClientLoginDto(email, password);
 
-  const response = await fetch(API_URL + "/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(loginDto),
-  });
 
-
-  if (!response.ok) {
+  const response = await UserService.login(loginDto)
+  console.log(response)
+  if (response.status != 200) {
     return getError(response);
   }
 
-  const responseJson = await response.json();
-  createSession(responseJson["token"]);
+  createSession(response.data["token"]);
   redirect("/client");
 }
 
@@ -45,13 +40,6 @@ export async function register(
   formData: FormData,
   registerDto: ClientRegisterDto
 ) {
-  const response = await fetch(API_URL + "/signup", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(registerDto),
-  });
 
   const validateFields = RegisterValidator.safeParse({
     email: formData.get("email"),
@@ -60,11 +48,18 @@ export async function register(
     name: formData.get("name"),
   });
 
-  
-  if (!response.ok) {
+  if (!validateFields.success) {
+    return {
+      errors: validateFields.error.flatten().fieldErrors,
+    };
+  }
+
+  const response = await UserService.register(registerDto)
+
+  if (response.status != 201) {
     return getError(response);
   }
-  const responseJson = await response.json();
+  const responseJson = response.data
 
   const tokenDto = new ClientTokenDto(responseJson["token"]);
 
@@ -78,25 +73,22 @@ export async function logout() {
   redirect("/login");
 }
 
-async function getError(response: Response) {
+async function getError(response: AxiosResponse) {
   //TODO Validation chain
-
-  const responseJson = await response.json();
-  if (!response.ok) {
-    const errorDescription = responseJson["description"] as string;
-    if (errorDescription.includes("email")) {
-      return {
-        errors: {
-          email: [`Invalid email`],
-        },
-      };
-    }
-    if (errorDescription.includes("password")) {
-      return {
-        errors: {
-          password: [`Invalid password`],
-        },
-      };
-    }
+  const responseJson = await response.data
+  const errorDescription = responseJson["description"] as string;
+  if (errorDescription.includes("email")) {
+    return {
+      errors: {
+        email: [`Invalid email`],
+      },
+    };
+  }
+  if (errorDescription.includes("password")) {
+    return {
+      errors: {
+        password: [`Invalid password`],
+      },
+    };
   }
 }
