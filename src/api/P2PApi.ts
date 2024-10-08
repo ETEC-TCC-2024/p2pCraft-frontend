@@ -1,32 +1,24 @@
-import { API_URL } from "@/app/actions/config";
 import axiosInstance from "./AxiosConfig";
 
 class P2PApi {
+  
   async post(path: string, body: Object) {
-    return axiosInstance.post(
-      path, {
-      method: "POST",
-      body: JSON.stringify(body),
+    const req = axiosInstance.post(path, body, {
+      validateStatus: () => true
     });
+    return req
   }
 
   async get(path: string) {
-    return axiosInstance.get(path, {
-      method: "GET",
-    });
+    return axiosInstance.get(path);
   }
 
   async put(path: string, body: Object) {
-    return axiosInstance.put(path, {
-      method: "PUT",
-      body: JSON.stringify(body),
-    });
+    return axiosInstance.put(path, body);
   }
 
   async delete(path: string) {
-    return axiosInstance.delete(path, {
-      method: "DELETE",
-    });
+    return axiosInstance.delete(path);
   }
 
 }
