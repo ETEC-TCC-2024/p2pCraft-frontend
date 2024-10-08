@@ -1,18 +1,19 @@
 import React from "react";
-import Server from "./Server";
 import Text from "../text/TextComponent";
 import { cn } from "@/lib/utils";
 import IconBackground from "../icon/IconBackground";
 import Link from "next/link";
+import UserServer from "@/api/model/UserServer";
 
 type ServerStatuses = "online" | "offline";
 
 interface ServerStatusProps {
-  server: Server;
-  serverStatus: ServerStatuses;
+  server: UserServer;
 }
 
-const ServerStatus: React.FC<ServerStatusProps> = ({ server, serverStatus }) => {
+const ServerStatus: React.FC<ServerStatusProps> = ({ server }) => {
+  const serverStatus: ServerStatuses = server.online ? "online" : "offline"
+
   const textDefaultClassName = "text-white-50 font-semibold font-sans";
   return (
     <Link href={`/server/${server.name}`}>
@@ -28,7 +29,7 @@ const ServerStatus: React.FC<ServerStatusProps> = ({ server, serverStatus }) => 
         <StatusBar status={serverStatus} />
         <div className="flex flex-1 flex-col my-4">
           <Text className={cn(textDefaultClassName, "text-3xl")}>{server.name}</Text>
-          <Text className={textDefaultClassName}>{server.minecraftVersion}</Text>
+          <Text className={textDefaultClassName}>{server.mapConfig.version}</Text>
         </div>
         <StatusIcon status={serverStatus}></StatusIcon>
       </div>
