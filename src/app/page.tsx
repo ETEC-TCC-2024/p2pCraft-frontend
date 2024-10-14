@@ -24,7 +24,7 @@ const HomePage = () => {
           <AboutMe.ImageSection>
             <AboutMe.Image imagePath="/assets/cat1.png" />
             <AboutMe.Image imagePath="/assets/cat2.png" />
-            <AboutMe.Image imagePath="/assets/cat3.jpg" />
+            <AboutMe.Image imagePath="/assets/cat3.png" />
           </AboutMe.ImageSection>
           <AboutMe.MainTextSection>
             <TextSection.Title> Sobre Mim</TextSection.Title>
@@ -115,7 +115,6 @@ const MainText = () => {
           </Text>
           <Link href="login">
             <Button>Começar Agora</Button>
-
           </Link>
         </div>
       </div>
