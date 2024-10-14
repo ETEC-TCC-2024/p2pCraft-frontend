@@ -12,7 +12,7 @@ export const RegisterValidator = z
       ctx.addIssue({
         code: "custom",
         message: "Passwords did not match",
-        path: ["confirmPassword"],
+        path: ["password"],
       });
     }
   });

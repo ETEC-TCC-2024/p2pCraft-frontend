@@ -6,6 +6,7 @@ import ServerStatus from "../components/server/ServerStatus";
 import TextComponent from "../components/text/TextComponent";
 import UserService from "@/api/service/UserService";
 import Conditional from "../components/conditional/Conditional";
+import Link from "next/link";
 
 const ServerHomePage = async () => {
   const currentClient = await UserService.getCurrentClient();
@@ -21,8 +22,10 @@ const ServerHomePage = async () => {
         </TextComponent>
 
         <Conditional showWhen={servers.length > 0}>
-          <div className="flex flex-wrap justify-center gap-8 " >
-            {servers.map((server) => <ServerStatus server={server} key={server.staticIp}></ServerStatus>)}
+          <div className="flex flex-wrap justify-center gap-8 ">
+            {servers.map((server) => (
+              <ServerStatus server={server} key={server.staticIp}></ServerStatus>
+            ))}
           </div>
         </Conditional>
 
@@ -36,7 +39,9 @@ const ServerHomePage = async () => {
             </TextComponent>
           </div>
         </Conditional>
-        <Button variant={"green"}>Registre um servidor</Button>
+        <Link href={"/server/register"}>
+          <Button variant={"green"}>Registre um servidor</Button>
+        </Link>
       </div>
       <Footer />
     </>
