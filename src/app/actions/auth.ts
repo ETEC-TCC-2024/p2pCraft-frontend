@@ -24,9 +24,7 @@ export async function login(formState: LoginState, formData: FormData) {
   const { email, password } = validateFields.data;
   const loginDto = new ClientLoginDto(email, password);
 
-
-  const response = await UserService.login(loginDto)
-  console.log(response)
+  const response = await UserService.login(loginDto);
   if (response.status != 200) {
     return getError(response);
   }
@@ -35,12 +33,7 @@ export async function login(formState: LoginState, formData: FormData) {
   redirect("/client");
 }
 
-export async function register(
-  formState: RegisterState,
-  formData: FormData,
-  registerDto: ClientRegisterDto
-) {
-
+export async function register(formState: RegisterState, formData: FormData) {
   const validateFields = RegisterValidator.safeParse({
     email: formData.get("email"),
     password: formData.get("password"),
@@ -54,18 +47,20 @@ export async function register(
     };
   }
 
-  const response = await UserService.register(registerDto)
+  const { name, email, password } = validateFields.data;
+
+  const registerDto = new ClientRegisterDto(name, email, password);
+  const response = await UserService.register(registerDto);
 
   if (response.status != 201) {
     return getError(response);
   }
-  const responseJson = response.data
+  const responseJson = response.data;
 
   const tokenDto = new ClientTokenDto(responseJson["token"]);
 
   createSession(tokenDto.token);
-
-  return tokenDto;
+  redirect("/client");
 }
 
 export async function logout() {
@@ -75,16 +70,16 @@ export async function logout() {
 
 async function getError(response: AxiosResponse) {
   //TODO Validation chain
-  const responseJson = await response.data
+  const responseJson = await response.data;
   const errorDescription = responseJson["description"] as string;
-  if (errorDescription.includes("email")) {
+  if (errorDescription.toLowerCase().includes("email")) {
     return {
       errors: {
         email: [`Invalid email`],
       },
     };
   }
-  if (errorDescription.includes("password")) {
+  if (errorDescription.toLowerCase().includes("password")) {
     return {
       errors: {
         password: [`Invalid password`],
