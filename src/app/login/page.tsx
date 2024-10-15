@@ -1,6 +1,5 @@
 "use client";
-import React, { HTMLInputTypeAttribute, useEffect, useState } from "react";
-import LabelAndField from "../components/form/LabelAndField";
+import React, { useEffect, useState } from "react";
 import { Footer } from "../components/navigation/Footer";
 import { NavBar } from "../components/navigation/NavBar";
 import Button from "../components/button/Button";
@@ -8,7 +7,7 @@ import Text from "../components/text/TextComponent";
 import Link from "next/link";
 import { login } from "@/app/actions/auth";
 import { useFormState } from "react-dom";
-import { LoginState } from "@/lib/validator/LoginValidator";
+import DefaultLabelAndField from "../components/form/DefaulltLabelAndField";
 
 const LoginPage = () => {
   const [emailValid, setEmailValid] = useState(true);
@@ -19,7 +18,7 @@ const LoginPage = () => {
     setEmailValid(formState?.errors.email === undefined);
     setPasswordValid(formState?.errors.password === undefined);
   }, [formState]);
-  
+
   const handleSubmit = () => {
     setEmailValid(true);
     setPasswordValid(true);
@@ -40,14 +39,12 @@ const LoginPage = () => {
             labelText="Email"
             fieldType="email"
             invalid={!emailValid}
-            formState={formState}
           />
           <DefaultLabelAndField
             labelName="password"
             labelText="Senha"
             fieldType="password"
             invalid={!passwordValid}
-            formState={formState}
           />
           <Button variant={"link"} className="relative p-0 ml-auto" type="button">
             Esqueceu sua senha?
@@ -70,29 +67,4 @@ const LoginPage = () => {
   );
 };
 
-interface LabelAndFieldProps {
-  labelText: string;
-  labelName: string;
-  fieldType?: HTMLInputTypeAttribute;
-  invalid: boolean;
-  formState: LoginState;
-}
-const DefaultLabelAndField: React.FC<LabelAndFieldProps> = ({
-  labelName,
-  labelText,
-  fieldType = "text",
-  invalid,
-  formState,
-}) => {
-  return (
-    <LabelAndField
-      className="min-w-[10%] max-w-[100%] w-96 mt-9"
-      fieldType={fieldType}
-      inputName={labelName}
-      fieldVariant={invalid ? "invalid" : null}
-    >
-      <div className="pl-1 p-2">{labelText}</div>
-    </LabelAndField>
-  );
-};
 export default LoginPage;
