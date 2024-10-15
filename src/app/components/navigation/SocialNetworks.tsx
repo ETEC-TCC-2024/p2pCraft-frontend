@@ -16,7 +16,7 @@ export const SocialNetworks = ({ className = "" }: SocialNetworksProps) => {
     );
   };
   return (
-    <div className={cn("flex justify-start mx-auto  gap-x-3", className)}>
+    <div className={cn("flex justify-start mx-auto gap-x-3", className)}>
       <IconButton>
         <Icon.Discord />
       </IconButton>

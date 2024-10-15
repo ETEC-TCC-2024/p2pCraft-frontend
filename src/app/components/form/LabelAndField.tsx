@@ -12,7 +12,7 @@ interface LabelAndFieldProps {
   fieldVariant?: fieldStates;
 }
 
-const LabelAndFieldVariants = cva("text-lg capitalize hover: hover:text-blue-300", {
+const LabelAndFieldVariants = cva("text-lg capitalize hover:text-blue-300", {
   variants: {
     variant: {
       focus: "text-blue-600 transition-all duration-200",
