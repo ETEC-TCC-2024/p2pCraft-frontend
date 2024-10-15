@@ -4,12 +4,11 @@ import Button, { buttonVariants } from "../button/Button";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import UserService from "@/api/service/UserService";
 import Conditional from "../conditional/Conditional";
 import { logout } from "@/app/actions/auth";
 
 interface NavbarProps extends VariantProps<typeof navbarVariants> {
-  isLoggedIn?: boolean
+  isLoggedIn?: boolean;
 }
 
 const navbarVariants = cva(
@@ -24,7 +23,10 @@ const navbarVariants = cva(
   }
 );
 
-export const NavBar: React.FC<NavbarProps> = ({ variant = "primary", isLoggedIn = false }: NavbarProps) => {
+export const NavBar: React.FC<NavbarProps> = ({
+  variant = "primary",
+  isLoggedIn = false,
+}: NavbarProps) => {
   let buttonVariant: VariantProps<typeof buttonVariants>["textColor"];
   buttonVariant = variant === "dark" ? "white" : "black";
   const NavBarButton: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -49,7 +51,9 @@ export const NavBar: React.FC<NavbarProps> = ({ variant = "primary", isLoggedIn 
         <NavBarButton>FAQ</NavBarButton>
         <Conditional showWhen={isLoggedIn}>
           <form action={logout}>
-            <Button variant="primary" type="submit">Sair</Button>
+            <Button variant="primary" type="submit">
+              Sair
+            </Button>
           </form>
         </Conditional>
         <Conditional showWhen={!isLoggedIn}>
