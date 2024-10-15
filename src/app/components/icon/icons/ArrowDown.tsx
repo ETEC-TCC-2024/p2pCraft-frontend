@@ -1,0 +1,9 @@
+
+// AUTO GENERATED
+import React from "react";
+import {IconProps} from "../Icon";
+const ArrowDown: React.FC <IconProps > = ({className}) => <div><svg className={className}   viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.0305 16.5303L20.5303 9.03028C20.8232 8.73743 20.8232 8.26253 20.5303 7.96963C20.2374 7.67678 19.7625 7.67678 19.4696 7.96968L12.5001 14.9393L5.53026 7.96963C5.23736 7.67678 4.76251 7.67678 4.4696 7.96968C4.32315 8.11608 4.24995 8.30803 4.24995 8.49998C4.24995 8.69193 4.32315 8.88388 4.46966 9.03033L11.9699 16.5303C12.1105 16.671 12.3013 16.75 12.5002 16.75C12.6991 16.75 12.8899 16.671 13.0305 16.5303Z" fill="#00A991"/>
+</svg>
+</div>
+export default ArrowDown;
