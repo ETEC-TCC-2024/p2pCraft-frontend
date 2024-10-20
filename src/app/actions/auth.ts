@@ -4,13 +4,17 @@ import { ClientLoginDto } from "@/dto/client/ClientLoginDto";
 import { ClientRegisterDto } from "@/dto/client/ClientRegisterDto";
 import { createSession, deleteSession } from "@/lib/Session";
 import { redirect } from "next/navigation";
-import { LoginState, LoginValidator } from "@/lib/validator/LoginValidator";
-import { RegisterState, RegisterValidator } from "@/lib/validator/RegisterValidator";
+import {
+  UserLoginState,
+  UserRegisterState,
+  UserLoginValidator,
+  UserRegisterValidator,
+} from "@/lib/validator/UserValidators";
 import UserService from "@/api/service/UserService";
 import { AxiosResponse } from "axios";
 
-export async function login(formState: LoginState, formData: FormData) {
-  const validateFields = LoginValidator.safeParse({
+export async function login(formState: UserLoginState, formData: FormData) {
+  const validateFields = UserLoginValidator.safeParse({
     email: formData.get("email"),
     password: formData.get("password"),
   });
@@ -33,8 +37,8 @@ export async function login(formState: LoginState, formData: FormData) {
   redirect("/client");
 }
 
-export async function register(formState: RegisterState, formData: FormData) {
-  const validateFields = RegisterValidator.safeParse({
+export async function register(formState: UserRegisterState, formData: FormData) {
+  const validateFields = UserRegisterValidator.safeParse({
     email: formData.get("email"),
     password: formData.get("password"),
     confirmPassword: formData.get("confirmPassword"),
