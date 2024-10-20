@@ -1,4 +1,3 @@
-import { log } from "console";
 import P2PApi from "../P2PApi";
 import User from "../model/User";
 import UserServer, { MapConfig } from "../model/UserServer";
@@ -17,7 +16,6 @@ class UserService {
 
     const servers = getServers(json);
     newUser.servers = servers;
-
     return newUser;
   }
 
