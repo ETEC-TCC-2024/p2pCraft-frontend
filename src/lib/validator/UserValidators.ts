@@ -1,6 +1,21 @@
 import { z } from "zod";
 
-export const RegisterValidator = z
+export const UserLoginValidator = z.object({
+  email: z.string().min(6, "Email is too short").trim(),
+  password: z.string().min(3, "Password is too short"),
+});
+
+export type UserLoginState =
+  | {
+      errors?: {
+        email?: string[];
+        password?: string[];
+      };
+      message?: string;
+    }
+  | undefined;
+
+export const UserRegisterValidator = z
   .object({
     email: z.string().min(6, "Email is too short").trim(),
     password: z.string().min(3, "Password is too short"),
@@ -17,7 +32,7 @@ export const RegisterValidator = z
     }
   });
 
-export type RegisterState =
+export type UserRegisterState =
   | {
       errors?: {
         email?: string[];
