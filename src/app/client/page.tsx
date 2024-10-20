@@ -16,7 +16,7 @@ const ServerHomePage = async () => {
       <header>
         <NavBar isLoggedIn={true} />
       </header>
-      <div className="flex flex-col items-center justify-between mx-auto container">
+      <div className="flex flex-col flex-grow items-center justify-between mx-auto container my-24">
         <TextComponent size={"extra_large_x4"} weight={"bold"}>
           Servidores
         </TextComponent>

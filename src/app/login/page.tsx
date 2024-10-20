@@ -28,7 +28,7 @@ const LoginPage = () => {
       <header>
         <NavBar variant={"primary"} />
       </header>
-      <div className="flex flex-col justify-center items-center ">
+      <div className="flex flex-col justify-center items-center my-auto">
         <form
           className="flex flex-col justify-center items-center px-9 py-12"
           action={formAction}
