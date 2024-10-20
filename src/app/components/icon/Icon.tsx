@@ -4,7 +4,7 @@
     export interface IconProps {
     className?: string;
 }
-export type iconKeys = "Default" | "ArrowDown" | "ArrowLeft" | "ArrowRight" | "ArrowUp" | "ClipboardOutline1" | "Close" | "Discord" | "Download" | "First" | "Gear" | "Github" | "Lock" | "Logo" | "Minus" | "NoQueue" | "NoCoin" | "OpenSource" | "Pause" | "People" | "Play" | "Plus" | "Second" | "Signal" | "Speedometer" | "Start" | "Stop" | "TextCursor" | "Third" | "Verified" | "Youtube";
+export type iconKeys = "Default" | "ArrowDown" | "ArrowLeft" | "ArrowRight" | "ArrowUp" | "ClipboardOutline1" | "Close" | "Discord" | "Download" | "First" | "Gear" | "Github" | "Lock" | "Logo" | "Minus" | "NoQueue" | "NoCoin" | "OpenSource" | "Pause" | "People" | "Play" | "Plus" | "Second" | "Signal" | "Speedometer" | "Start" | "Stop" | "TextCursor" | "Third" | "Verified" | "WhiteDownload" | "WhiteStart" | "Youtube";
 
  const Default = lazy(async () => await import("./icons/Default"))
 const ArrowDown = lazy(async () => await import("./icons/ArrowDown"))
@@ -36,6 +36,8 @@ const Stop = lazy(async () => await import("./icons/Stop"))
 const TextCursor = lazy(async () => await import("./icons/TextCursor"))
 const Third = lazy(async () => await import("./icons/Third"))
 const Verified = lazy(async () => await import("./icons/Verified"))
+const WhiteDownload = lazy(async () => await import("./icons/WhiteDownload"))
+const WhiteStart = lazy(async () => await import("./icons/WhiteStart"))
 const Youtube = lazy(async () => await import("./icons/Youtube"))
 
  const Icon: Record<iconKeys, React.FC<IconProps>> = {Default : ({className}) => <Default className={className} />,
@@ -68,6 +70,8 @@ Stop : ({className}) => <Stop className={className} />,
 TextCursor : ({className}) => <TextCursor className={className} />,
 Third : ({className}) => <Third className={className} />,
 Verified : ({className}) => <Verified className={className} />,
+WhiteDownload : ({className}) => <WhiteDownload className={className} />,
+WhiteStart : ({className}) => <WhiteStart className={className} />,
 Youtube : ({className}) => <Youtube className={className} />,
 } 
  export default Icon;
