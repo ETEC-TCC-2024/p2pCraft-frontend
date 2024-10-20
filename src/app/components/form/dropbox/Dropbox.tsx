@@ -14,6 +14,7 @@ interface DropboxProps {
   labelText: string;
   initialOption?: string;
   variant?: "primary" | "green";
+  id: string;
 }
 
 const DropdownIndicator = (active: boolean) => {
@@ -34,7 +35,8 @@ const DropDown: React.FC<DropboxProps> = ({
   options,
   labelText,
   variant,
-  initialOption: initialText = "Selecione uma opção",
+  initialOption = "Selecione uma opção",
+  id,
 }) => {
   return (
     <>
@@ -43,15 +45,17 @@ const DropDown: React.FC<DropboxProps> = ({
           className={className}
           options={options}
           labelText={labelText}
-          initialOption={initialText}
+          initialOption={initialOption}
+          id={id}
         ></PrimaryDropdown>
       </Conditional>
       <Conditional showWhen={variant === "green"}>
         <GreenDropdown
+          id={id}
           className={className}
           options={options}
           labelText={labelText}
-          initialOption={initialText}
+          initialOption={initialOption}
         ></GreenDropdown>
       </Conditional>
     </>
@@ -62,7 +66,8 @@ const GreenDropdown: React.FC<DropboxProps> = ({
   className,
   labelText,
   options,
-  initialOption: initialText,
+  initialOption,
+  id,
 }) => {
   const [active, setActive] = useState(false);
 
@@ -71,7 +76,8 @@ const GreenDropdown: React.FC<DropboxProps> = ({
       <label className="flex flex-row items-center justify-between capitalize w-64 bg-dark-green-600 px-3 py-2">
         <Text className="text-white text-lg">{labelText}</Text>
         <Select
-          defaultValue={{ value: initialText, label: initialText }}
+          name={id}
+          defaultValue={{ value: initialOption, label: labelText }}
           options={options}
           components={{ DropdownIndicator: () => DropdownIndicator(active) }}
           onMenuOpen={() => setActive(true)}
@@ -111,6 +117,7 @@ const PrimaryDropdown: React.FC<DropboxProps> = ({
   labelText,
   options,
   initialOption: initialText,
+  id,
 }) => {
   const [active, setActive] = useState(false);
 
@@ -119,6 +126,7 @@ const PrimaryDropdown: React.FC<DropboxProps> = ({
       <label className="text-lg capitalize hover:text-blue-500">
         {labelText}
         <Select
+          name={id}
           defaultValue={{ value: initialText, label: initialText }}
           options={options}
           components={{ DropdownIndicator: () => DropdownIndicator(active) }}
@@ -132,7 +140,7 @@ const PrimaryDropdown: React.FC<DropboxProps> = ({
           classNames={{
             control: (state) =>
               cn(
-                "!border-black-900 !bg-transparent !p-0 !m-0",
+                "!border-black-900 !bg-[#DCFFFB] !p-0 !m-0",
                 {
                   "!rounded-t-lg !border-b-0 ": state.menuIsOpen,
                   "!rounded-lg": !state.menuIsOpen,
@@ -143,7 +151,7 @@ const PrimaryDropdown: React.FC<DropboxProps> = ({
               ),
             menu: (state) =>
               cn(
-                "!bg-transparent !rounded-b-lg !border !border-t-0 !shadow-none !border-black-900",
+                "!bg-[#DCFFFB] !rounded-b-lg !border !border-t-0 !shadow-none !border-black-900",
                 {}
               ),
             menuList: (state) => cn(""),
