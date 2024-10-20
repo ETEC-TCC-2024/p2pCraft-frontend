@@ -1,25 +1,22 @@
 "use client";
+import { registerServer } from "@/app/actions/server";
 import Button from "@/app/components/button/Button";
 import DefaultLabelAndField from "@/app/components/form/DefaulltLabelAndField";
 import DropDown from "@/app/components/form/dropbox/Dropbox";
 import { Footer } from "@/app/components/navigation/Footer";
 import { NavBar } from "@/app/components/navigation/NavBar";
-import Select from "react-select/base";
+import { useFormState } from "react-dom";
 
 export default function RegisterServerPage() {
-  const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-  ];
+  const [formState, action] = useFormState(registerServer, undefined);
 
   return (
     <>
       <header>
         <NavBar isLoggedIn={true} variant={"primary"} />
       </header>
-      <form action="">
-        <div className="container flex flex-col mx-auto justify-center items-center gap-14">
+      <form action={action}>
+        <div className="container flex flex-col mx-auto  justify-center items-center gap-14 h-full">
           <div className="flex flex-row gap-14">
             <DefaultLabelAndField
               labelText="Nome"
@@ -35,10 +32,10 @@ export default function RegisterServerPage() {
             ></DefaultLabelAndField>
           </div>
           <VersionDropdown />
-          <Button type="submit" variant={"green"}>
-            Registrar
-          </Button>
         </div>
+        <Button className="flex flex-col mx-auto relative" type="submit" variant={"green"}>
+          Registrar
+        </Button>
       </form>
       <Footer></Footer>
     </>
@@ -53,13 +50,12 @@ function VersionDropdown() {
   ];
 
   return (
-    <>
-      <DropDown
-        options={selectableVersions}
-        labelText="Versão"
-        className="w-[400px] h-24"
-        variant="primary"
-      ></DropDown>
-    </>
+    <DropDown
+      options={selectableVersions}
+      labelText="Versão"
+      className="w-[400px]"
+      variant="primary"
+      id="version"
+    ></DropDown>
   );
 }
