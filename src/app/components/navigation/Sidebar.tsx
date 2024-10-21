@@ -22,7 +22,7 @@ export const SideBar: React.FC<SideBarProps> = ({ activeBar, serverName }) => {
       <Link href={href}>
         <Button
           className={cn("w-64 flex flex-row items-center rounded-none m-0 p-4", {
-            "bg-gradient-to-l to-dark-green-600 from-25% from-dark-green-700": active,
+            "bg-gradient-to-r to-dark-green-400 from-25% from-dark-green-700": active,
           })}
           variant={"dark"}
         >
@@ -34,39 +34,51 @@ export const SideBar: React.FC<SideBarProps> = ({ activeBar, serverName }) => {
   };
 
   return (
-    <div className="flex flex-col h-[86vh] w-fit relative bg-dark-green-900 overflow-hidden">
-      <SideBarButton href={`${serverName}`} icon="WhiteStart" active={activeBar == "server"}>
+    <aside className="flex flex-col h-full w-fit bg-dark-green-900 ">
+      <SideBarButton
+        href={`/server/${serverName}`}
+        icon="WhiteStart"
+        active={activeBar == "server"}
+      >
         Servidor
       </SideBarButton>
 
-      <SideBarButton href={`${serverName}/config`} icon="Gear" active={activeBar == "config"}>
+      <SideBarButton
+        href={`/server/${serverName}/config`}
+        icon="Gear"
+        active={activeBar == "config"}
+      >
         Configurações
       </SideBarButton>
 
       <SideBarButton
-        href={`${serverName}/whitelist`}
+        href={`/server/${serverName}/whitelist`}
         icon="People"
         active={activeBar == "whitelist"}
       >
         Whitelist
       </SideBarButton>
 
-      <SideBarButton href={`${serverName}/access`} icon="Lock" active={activeBar == "access"}>
+      <SideBarButton
+        href={`/server/${serverName}/access`}
+        icon="Lock"
+        active={activeBar == "access"}
+      >
         Acesso
       </SideBarButton>
 
       <SideBarButton
-        href={`${serverName}/map`}
+        href={`/server/${serverName}/download`}
         icon="WhiteDownload"
         active={activeBar == "download"}
       >
         Mapa
       </SideBarButton>
       <div className="mt-auto">
-        <SideBarButton active={false} icon="ArrowLeft" href="">
+        <SideBarButton active={false} icon="ArrowLeft" href="/client">
           Voltar
         </SideBarButton>
       </div>
-    </div>
+    </aside>
   );
 };
