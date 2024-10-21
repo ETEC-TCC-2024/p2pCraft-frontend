@@ -12,7 +12,7 @@ interface ServerStatusProps {
 }
 
 const ServerStatus: React.FC<ServerStatusProps> = ({ server }) => {
-  const serverStatus: ServerStatuses = server.online ? "online" : "offline"
+  const serverStatus: ServerStatuses = server.online ? "online" : "offline";
 
   const textDefaultClassName = "text-white-50 font-semibold font-sans";
   return (
@@ -29,7 +29,7 @@ const ServerStatus: React.FC<ServerStatusProps> = ({ server }) => {
         <StatusBar status={serverStatus} />
         <div className="flex flex-1 flex-col my-4">
           <Text className={cn(textDefaultClassName, "text-3xl")}>{server.name}</Text>
-          <Text className={textDefaultClassName}>{server.mapConfig.version}</Text>
+          <Text className={textDefaultClassName}>{server.mapConfigurations.version}</Text>
         </div>
         <StatusIcon status={serverStatus}></StatusIcon>
       </div>
