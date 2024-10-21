@@ -1,4 +1,6 @@
 "use server";
+import ServerController from "@/api/controller/ServerController";
+import UserServer from "@/api/model/UserServer";
 import ServerService from "@/api/service/ServerService";
 import { ServerRegisterDto } from "@/dto/server/ServerRegisterDto";
 import { ServerRegisterState, ServerRegisterValidator } from "@/lib/validator/ServerValidator";
@@ -35,3 +37,15 @@ export async function registerServer(formState: ServerRegisterState, formData: F
 
   redirect(`/server/${name}`);
 }
+
+export async function getServer(formState: GetServerState, formData: FormData) {
+  const server = await ServerController.getServerByName(formData.get("name")?.toString()!);
+  if (server == null) {
+    redirect("/client");
+  }
+  return { server: server };
+}
+
+export type GetServerState = {
+  server: UserServer;
+} | undefined;
