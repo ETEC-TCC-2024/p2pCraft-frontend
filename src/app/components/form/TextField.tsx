@@ -3,22 +3,31 @@ import { cva, VariantProps } from "class-variance-authority";
 import { InputHTMLAttributes } from "react";
 import FieldBorder, { BorderVariants } from "./FieldBorder";
 
-interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
-  variant: fieldStates;
+interface TextFieldProps
+  extends InputHTMLAttributes<HTMLInputElement>,
+    VariantProps<typeof TextFieldVariants> {
+  fieldState?: fieldStates;
 }
 
 export type fieldStates = VariantProps<typeof BorderVariants>["variant"];
 
-const TextField: React.FC<TextFieldProps> = ({ ...props }) => {
+const TextFieldVariants = cva("w-full outline-none text-base !bg-transparent", {
+  variants: {
+    variant: {
+      primary: "text-black-900",
+      green: "text-white placeholder-white/30",
+    },
+  },
+});
+
+const TextField: React.FC<TextFieldProps> = ({
+  variant = "primary",
+  fieldState = "primary",
+  ...props
+}) => {
   return (
-    <FieldBorder variant={props.variant}>
-      <input
-        {...props}
-        className={cn(
-          "w-full outline-none text-base text-black-900 !bg-transparent",
-          props.className
-        )}
-      />
+    <FieldBorder variant={fieldState}>
+      <input {...props} className={cn(TextFieldVariants({ variant }), props.className)} />
     </FieldBorder>
   );
 };

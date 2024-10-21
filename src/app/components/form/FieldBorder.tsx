@@ -2,15 +2,16 @@ import { cn } from "@/lib/utils";
 import { cva, VariantProps } from "class-variance-authority";
 
 export const BorderVariants = cva(
-  "h-fit w-full rounded-lg border p-3 outline-none bg-opacity-0 border-black-900 border-opacity-40 transition-all duration-200 ",
+  "h-fit w-full rounded-lg p-3 outline-none transition-all duration-200 ",
   {
     variants: {
       variant: {
-        primary: "",
+        primary: "border bg-opacity-0 border-black-900 border-opacity-40",
         focus:
           "border-2 -m-[1px] border-blue-400 shadow-2xl border-opacity-100 transition-shadow duration-300",
-        hover: "border-blue-400",
-        invalid: "border-red-400",
+        hover: "border border-blue-400",
+        invalid: "border border-red-400",
+        empty: ""
       },
     },
   }

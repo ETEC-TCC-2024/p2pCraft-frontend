@@ -2,7 +2,7 @@
 import TextField, { fieldStates } from "./TextField";
 import React, { HTMLInputTypeAttribute, ReactNode, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { cva, VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 
 interface LabelAndFieldProps {
   children?: ReactNode;
@@ -20,6 +20,7 @@ const LabelAndFieldVariants = cva("text-lg capitalize hover:text-blue-300", {
       primary: "",
       disable: "",
       invalid: "text-red-400",
+      empty: "",
     },
   },
 });
@@ -43,7 +44,7 @@ const LabelAndField: React.FC<LabelAndFieldProps> = ({
         type={fieldType}
         onFocus={(e) => setFieldState("focus")}
         onBlur={(e) => setFieldState("primary")}
-        variant={fieldState}
+        fieldState={fieldState}
       />
     </label>
   );
