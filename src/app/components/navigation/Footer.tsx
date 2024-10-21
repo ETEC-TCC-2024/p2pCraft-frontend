@@ -12,7 +12,7 @@ const footerVariants = cva("flex mx-auto items-center justify-between px-4 w-ful
   variants: {
     variant: {
       primary: "text-black-900 container",
-      dark: "text-white bg-dark-green-900 overflow-hidden",
+      dark: "text-white bg-dark-green-900",
     },
   },
 });

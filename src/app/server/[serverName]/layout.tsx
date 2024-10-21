@@ -15,9 +15,10 @@ export default async function ServerLayout({
   if (currentServer == null) {
     redirect("/client");
   }
+
   return (
     <>
-        <header className="h-fit ">
+        <header className="h-fit">
           <NavBar variant={"dark"} isLoggedIn={true}></NavBar>
         </header>
         <div className="flex flex-grow bg-dark-green-700">{children}</div>

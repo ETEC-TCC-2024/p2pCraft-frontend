@@ -34,7 +34,7 @@ export const SideBar: React.FC<SideBarProps> = ({ activeBar, serverName }) => {
   };
 
   return (
-    <aside className="flex flex-col h-full w-fit bg-dark-green-900 ">
+    <aside className="flex flex-col h-full w-fit sticky bg-dark-green-900 ">
       <SideBarButton
         href={`/server/${serverName}`}
         icon="WhiteStart"

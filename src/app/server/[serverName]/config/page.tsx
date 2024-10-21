@@ -42,7 +42,7 @@ const ConfigPage = ({ params }: { params: { serverName: string } }) => {
       <SideBar activeBar="config" serverName={params.serverName}></SideBar>
       <div className="flex flex-col mx-auto my-auto justify-between h-[560px]">
         <div className="flex mx-auto h-fit ">
-          <Text className="text-white text-4xl font-bold"> Configurações do Servidor</Text>
+          <Text className="text-white text-5xl font-bold"> Configurações do Servidor</Text>
         </div>
 
         <div className="flex flex-col gap-9 m-16">
