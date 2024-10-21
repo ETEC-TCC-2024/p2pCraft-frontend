@@ -7,12 +7,12 @@ import Conditional from "../../conditional/Conditional";
 import Select from "react-select";
 import Text from "../../text/TextComponent";
 
-type option = { label: string; value: string };
+export type DropDownOption = { label: string; value: string };
 interface DropboxProps {
-  options: option[];
+  options: DropDownOption[];
   className?: string;
   labelText: string;
-  initialOption?: string;
+  initialOption?: DropDownOption;
   variant?: "primary" | "green";
   id: string;
 }
@@ -21,10 +21,10 @@ const DropdownIndicator = (active: boolean) => {
   return (
     <>
       <Conditional showWhen={active}>
-        <Icon.ArrowUp className="w-6 mr-2 ml-6" />
+        <Icon.ArrowUp className="w-6 h-6" />
       </Conditional>
       <Conditional showWhen={!active}>
-        <Icon.ArrowDown className="w-6 mr-2 ml-6" />
+        <Icon.ArrowDown className="w-6 h-6" />
       </Conditional>
     </>
   );
@@ -35,7 +35,7 @@ const DropDown: React.FC<DropboxProps> = ({
   options,
   labelText,
   variant,
-  initialOption = "Selecione uma opção",
+  initialOption = { label: "Selecione uma opção", value: "empty" },
   id,
 }) => {
   return (
@@ -73,11 +73,11 @@ const GreenDropdown: React.FC<DropboxProps> = ({
 
   return (
     <div className={cn("w-64", className)}>
-      <label className="flex flex-row items-center justify-between capitalize w-64 bg-dark-green-600 px-3 py-2">
-        <Text className="text-white text-lg">{labelText}</Text>
+      <label className="flex flex-row items-center justify-between capitalize w-64 max-h-16 bg-dark-green-600 px-3 py-3">
+        <Text className="text-white ">{labelText}</Text>
         <Select
           name={id}
-          defaultValue={{ value: initialOption, label: labelText }}
+          defaultValue={initialOption}
           options={options}
           components={{ DropdownIndicator: () => DropdownIndicator(active) }}
           onMenuOpen={() => setActive(true)}
@@ -95,7 +95,7 @@ const GreenDropdown: React.FC<DropboxProps> = ({
             menu: (state) => cn("!bg-dark-green-700 !shadow-none  !border-black-900", {}),
             option: (state) =>
               cn(
-                "!p-2 ",
+                "!p-2",
                 {
                   "!bg-dark-green-500": state.isFocused,
                 },
@@ -104,7 +104,7 @@ const GreenDropdown: React.FC<DropboxProps> = ({
                 }
               ),
             indicatorSeparator: () => cn("!bg-transparent"),
-            singleValue: () => "!text-white",
+            singleValue: () => cn("!text-white min-w-14"),
           }}
           className="text-white"
         ></Select>
@@ -116,7 +116,7 @@ const PrimaryDropdown: React.FC<DropboxProps> = ({
   className,
   labelText,
   options,
-  initialOption: initialText,
+  initialOption,
   id,
 }) => {
   const [active, setActive] = useState(false);
@@ -127,7 +127,7 @@ const PrimaryDropdown: React.FC<DropboxProps> = ({
         {labelText}
         <Select
           name={id}
-          defaultValue={{ value: initialText, label: initialText }}
+          defaultValue={initialOption}
           options={options}
           components={{ DropdownIndicator: () => DropdownIndicator(active) }}
           onMenuOpen={() => setActive(true)}
