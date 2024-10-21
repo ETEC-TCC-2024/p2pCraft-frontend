@@ -8,17 +8,14 @@ import Link from "next/link";
 
 interface FooterProps extends VariantProps<typeof footerVariants> {}
 
-const footerVariants = cva(
-  " flex mx-auto mt-auto items-center justify-between px-4 w-full text-black-900",
-  {
-    variants: {
-      variant: {
-        primary: "container",
-        dark: "text-white bg-dark-green-900 overflow-hidden",
-      },
+const footerVariants = cva("flex mx-auto items-center justify-between px-4 w-full", {
+  variants: {
+    variant: {
+      primary: "text-black-900 container",
+      dark: "text-white bg-dark-green-900 overflow-hidden",
     },
-  }
-);
+  },
+});
 
 export const Footer: React.FC<FooterProps> = ({ variant = "primary" }: FooterProps) => {
   return (
@@ -37,7 +34,7 @@ export const Footer: React.FC<FooterProps> = ({ variant = "primary" }: FooterPro
       <Link href={href}>
         <Button
           variant={"link"}
-          className={cn(variant == "dark" ? "text-white" : "text-black-900")}
+          className={cn(variant == "dark" ? "text-white hover:text-gray-400" : "text-black-900")}
         >
           {children}
         </Button>
