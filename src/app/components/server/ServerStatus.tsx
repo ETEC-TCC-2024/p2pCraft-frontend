@@ -12,7 +12,7 @@ interface ServerStatusProps {
 }
 
 const ServerStatus: React.FC<ServerStatusProps> = ({ server }) => {
-  const serverStatus: ServerStatuses = server.online ? "online" : "offline";
+  const serverStatus: ServerStatuses = server.open ? "online" : "offline";
 
   const textDefaultClassName = "text-white-50 font-semibold font-sans";
   return (

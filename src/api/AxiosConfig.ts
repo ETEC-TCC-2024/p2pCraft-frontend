@@ -4,18 +4,14 @@ import { cookies } from "next/headers";
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
-  timeout: 5000,
+  timeout: 10000,
   headers: { "Content-Type": "application/json" },
 });
 axiosInstance.interceptors.request.use(
   (config) => {
-    const isApiRequest = config.baseURL == API_URL;
     const token = cookies().get("session")?.value;
-
     if (token) {
-      if (isApiRequest) {
-        config.headers.Authorization = `Bearer ${token}`;
-      }
+      config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },

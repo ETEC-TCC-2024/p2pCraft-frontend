@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Text from "../../text/TextComponent";
 import Icon from "../../icon/Icon";
 
@@ -21,19 +20,19 @@ const NumberField: React.FC<NumberFieldProps> = ({
     <div className="flex flex-row h-fit w-64 py-3 px-2  max-h-16 bg-dark-green-600 justify-center items-center">
       <Text className="text-white">{labelText}</Text>
 
-      <div className="flex flex-row ml-auto bg-dark-green-700 p-2">
-        <button onClick={() => setNumber(currentNumber - 1)}>
-          <Icon.Minus className="w-6"></Icon.Minus>
+      <div className="flex flex-row ml-auto bg-dark-green-700 p-2 px-3 w-32 justify-between">
+        <button onClick={() => setNumber(currentNumber - 1)} type="button">
+          <Icon.Minus className="w-6 h-6 mr-3"></Icon.Minus>
         </button>
-        <input hidden name={fieldName}></input>
-        <Text className="text-white"> {currentNumber} </Text>
-        <button
-          onClick={() => {
-            console.log(currentNumber);
-            setNumber(currentNumber + 1);
-          }}
-        >
-          <Icon.Plus className="w-6 h-6"></Icon.Plus>
+        <input
+          name={fieldName}
+          value={currentNumber}
+          defaultValue={currentNumber}
+          className="text-white bg-transparent w-full outline-none appearance-none text-center"
+          type="number"
+        ></input>
+        <button onClick={() => setNumber(currentNumber + 1)} type="button">
+          <Icon.Plus className="w-6 h-6 ml-3"></Icon.Plus>
         </button>
       </div>
     </div>

@@ -1,7 +1,6 @@
 import P2PApi from "../P2PApi";
 import User from "../model/User";
 import UserServer, { MapConfig } from "../model/UserServer";
-import UserServerRoles from "../model/UserServerRoles";
 import { ClientLoginDto } from "@/dto/client/ClientLoginDto";
 import { ClientRegisterDto } from "@/dto/client/ClientRegisterDto";
 import ServerJsonParser from "../parser/ServerJsonParser";
@@ -14,7 +13,6 @@ class UserService {
     newUser.name = json["name"];
     newUser.email = json["email"];
     newUser.uuid = json["uuid"];
-
     const servers = getServers(json);
     newUser.servers = servers;
     return newUser;
@@ -35,9 +33,10 @@ class UserService {
 
 function getServers(json: any) {
   const serverAcesses = json["serverAccesses"];
+
   const servers: UserServer[] = [];
   for (const access of serverAcesses) {
-    const server = ServerJsonParser.parse(access)
+    const server = ServerJsonParser.parse(access);
     servers.push(server);
   }
   return servers;

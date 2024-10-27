@@ -4,7 +4,7 @@
     export interface IconProps {
     className?: string;
 }
-export type iconKeys = "Default" | "ArrowDown" | "ArrowLeft" | "ArrowRight" | "ArrowUp" | "ClipboardOutline1" | "Close" | "Discord" | "Download" | "First" | "Gear" | "Github" | "Lock" | "Logo" | "Minus" | "NoQueue" | "NoCoin" | "OpenSource" | "Pause" | "People" | "Play" | "Plus" | "Second" | "Signal" | "Speedometer" | "Start" | "Stop" | "TextCursor" | "Third" | "Verified" | "WhiteDownload" | "WhiteStart" | "Youtube";
+export type iconKeys = "Default" | "ArrowDown" | "ArrowLeft" | "ArrowRight" | "ArrowUp" | "ClipboardOutline1" | "Close" | "DarkGear" | "Discord" | "Download" | "First" | "Gear" | "Github" | "Lock" | "Logo" | "Minus" | "NoQueue" | "NoCoin" | "OpenSource" | "Pause" | "People" | "Play" | "Plus" | "Second" | "Signal" | "Speedometer" | "Start" | "Stop" | "TextCursor" | "Third" | "Verified" | "WhiteDownload" | "WhiteStart" | "Youtube";
 
  const Default = lazy(async () => await import("./icons/Default"))
 const ArrowDown = lazy(async () => await import("./icons/ArrowDown"))
@@ -13,6 +13,7 @@ const ArrowRight = lazy(async () => await import("./icons/ArrowRight"))
 const ArrowUp = lazy(async () => await import("./icons/ArrowUp"))
 const ClipboardOutline1 = lazy(async () => await import("./icons/ClipboardOutline1"))
 const Close = lazy(async () => await import("./icons/Close"))
+const DarkGear = lazy(async () => await import("./icons/DarkGear"))
 const Discord = lazy(async () => await import("./icons/Discord"))
 const Download = lazy(async () => await import("./icons/Download"))
 const First = lazy(async () => await import("./icons/First"))
@@ -47,6 +48,7 @@ ArrowRight : ({className}) => <ArrowRight className={className} />,
 ArrowUp : ({className}) => <ArrowUp className={className} />,
 ClipboardOutline1 : ({className}) => <ClipboardOutline1 className={className} />,
 Close : ({className}) => <Close className={className} />,
+DarkGear : ({className}) => <DarkGear className={className} />,
 Discord : ({className}) => <Discord className={className} />,
 Download : ({className}) => <Download className={className} />,
 First : ({className}) => <First className={className} />,
