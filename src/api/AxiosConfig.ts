@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
-  timeout: 10000,
+  timeout: 15000,
   headers: { "Content-Type": "application/json" },
 });
 axiosInstance.interceptors.request.use(
