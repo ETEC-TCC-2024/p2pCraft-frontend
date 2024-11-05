@@ -3,7 +3,7 @@ import { z } from "zod";
 
 export const ServerRegisterValidator = z.object({
   name: z.string().min(3, "Name is too short").trim(),
-  version: z.string().min(1, "Must select a version"),
+  version: z.string().includes("."),
   seed: z.string().default(randomUUID().toString()),
 });
 

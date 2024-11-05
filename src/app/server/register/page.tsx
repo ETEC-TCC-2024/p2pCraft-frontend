@@ -5,10 +5,18 @@ import DefaultLabelAndField from "@/app/components/form/DefaulltLabelAndField";
 import DropDown from "@/app/components/form/dropbox/Dropbox";
 import { Footer } from "@/app/components/navigation/Footer";
 import { NavBar } from "@/app/components/navigation/NavBar";
+import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 
 export default function RegisterServerPage() {
   const [formState, action] = useFormState(registerServer, undefined);
+  const [versionValid, setVersionValid] = useState(true);
+  const [nameValid, setNameValid] = useState(true)
+
+  useEffect(() => {
+    setVersionValid(formState?.errors.version === undefined);
+    setNameValid(formState?.errors.name === undefined);
+  }, [formState]);
 
   return (
     <>
@@ -22,7 +30,7 @@ export default function RegisterServerPage() {
               <DefaultLabelAndField
                 labelText="Nome"
                 labelName="name"
-                invalid={false}
+                invalid={!nameValid}
                 className="m-0"
               ></DefaultLabelAndField>
               <DefaultLabelAndField
@@ -33,9 +41,9 @@ export default function RegisterServerPage() {
               ></DefaultLabelAndField>
             </div>
             <VersionDropdown />
-          <Button className="flex flex-col mx-auto" type="submit" variant={"green"}>
-            Registrar
-          </Button>
+            <Button className="flex flex-col mx-auto" type="submit" variant={"green"}>
+              Registrar
+            </Button>
           </div>
         </form>
       </div>

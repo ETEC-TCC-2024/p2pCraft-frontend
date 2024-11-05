@@ -26,7 +26,6 @@ const NumberField: React.FC<NumberFieldProps> = ({
         </button>
         <input
           name={fieldName}
-          value={currentNumber}
           defaultValue={currentNumber}
           className="text-white bg-transparent w-full outline-none appearance-none text-center"
           type="number"

@@ -32,11 +32,10 @@ const ServerDownload = async ({ server }: { server: UserServer }) => {
         <div className="flex flex-row gap-6">
           <CustomLink
             iconName={"Download"}
-            href={`${server.mapConfigurations.mapUrl.slice(0, -4)}/archive/refs/heads/main.zip`}
+            href={`${server.mapConfigurations.mapUrl}/archive/refs/heads/main.zip`}
           ></CustomLink>
           <CustomLink iconName="DarkGear" href={`/server/${server.name}/config`}></CustomLink>
           <CustomLink iconName="Start" href={`/server/${server.name}`}></CustomLink>
-         
         </div>
       </div>
     </div>

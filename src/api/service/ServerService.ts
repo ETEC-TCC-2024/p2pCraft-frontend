@@ -1,11 +1,10 @@
 import { ServerRegisterDto } from "@/dto/server/ServerRegisterDto";
-import axiosInstance from "../AxiosConfig";
 import P2PApi from "../P2PApi";
 import UserServer, { ServerProperties } from "../model/UserServer";
 
 class ServerService {
   async register(registerDto: ServerRegisterDto) {
-    const response = await axiosInstance.post("/server", registerDto);
+    const response = await P2PApi.post("/server", registerDto);
     return response;
   }
 
