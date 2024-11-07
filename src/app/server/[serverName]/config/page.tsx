@@ -4,7 +4,7 @@ import { ConfigForm } from "./ConfigForm";
 import ServerController from "@/api/controller/ServerController";
 
 const ConfigPage = async ({ params }: { params: { serverName: string } }) => {
-  const server = await ServerController.getServerByName(params.serverName);
+  const server = await ServerController.getServerPropertiesByName(params.serverName);
   return (
     <>
       <SideBar activeBar="config" serverName={params.serverName}></SideBar>

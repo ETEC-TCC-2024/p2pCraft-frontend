@@ -13,6 +13,11 @@ class ServerService {
     return response;
   }
 
+  async getServerPropertiesByName(name: string) {
+    const response = await P2PApi.get(`/server/${name}/properties`);
+    return response;
+  }
+
   async updateProperties(properties: ServerProperties, serverName: string) {
     return this.updateServer({ properties: properties }, serverName);
   }

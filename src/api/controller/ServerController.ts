@@ -15,6 +15,15 @@ class ServerController {
     const responseData = serviceResponse.data;
     return ServerJsonParser.parse(responseData);
   }
+  async getServerPropertiesByName(name: string) {
+    const serviceResponse = await ServerService.getServerPropertiesByName(name);
+    if (serviceResponse.status != HttpStatusCode.Ok) {
+      return null;
+    }
+    const responseData = serviceResponse.data;
+    return ServerJsonParser.parse(responseData);
+  }
+
   async updateProperties(properties: ServerProperties, serverName: string) {
     await ServerService.updateProperties(properties, serverName);
   }
