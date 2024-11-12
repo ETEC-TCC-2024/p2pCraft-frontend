@@ -43,7 +43,7 @@ export const NavBar: React.FC<NavbarProps> = ({
 
         <NavBarButton>Sobre mim</NavBarButton>
 
-        <NavBarButton>Contato</NavBarButton>
+        <NavBarButton>Baixar mod</NavBarButton>
 
         <NavBarButton>FAQ</NavBarButton>
         <Conditional showWhen={isLoggedIn}>

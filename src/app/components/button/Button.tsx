@@ -23,7 +23,7 @@ export const buttonVariants = cva("text-base py-4 rounded-lg ps-5 pe-5 font-bold
   },
 });
 
-export const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   textColor = "white",
   children,

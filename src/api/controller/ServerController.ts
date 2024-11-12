@@ -5,6 +5,7 @@ import User from "../model/User";
 import ServerJsonParser from "../parser/ServerJsonParser";
 import { PlayerDto } from "@/dto/client/PlayerDto";
 import PlayerJsonParser from "../parser/PlayerJsonParser";
+import ClientAccessJsonParser from "../parser/ClientAccessJsonParser";
 
 class ServerController {
   async getServerByName(name: string) {
@@ -41,6 +42,21 @@ class ServerController {
   async removeFromWhiteList(serverName: string, playerName: string) {
     const response = await ServerService.removePlayerFromWhitelist(serverName, playerName);
     return PlayerJsonParser.parseMany(response.data);
+  }
+
+  async addClientAccess(serverName: string, clientName: string, accessType: string) {
+    await ServerService.addClientAccess(serverName, clientName, accessType);
+  }
+  async updateClientAccess(serverName: string, clientName: string, accessType: string) {
+    await ServerService.updateClientAccess(serverName, clientName, accessType);
+  }
+  async removeClientAccess(serverName: string, clientName: string) {
+    await ServerService.removeClientAccess(serverName, clientName);
+  }
+
+  async getServerAccesses(serverName: string) {
+    const response = await ServerService.getServerAccesses(serverName);
+    return ClientAccessJsonParser.parseMany(response.data);
   }
 }
 
