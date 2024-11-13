@@ -60,12 +60,11 @@ function VersionDropdown() {
   ];
 
   return (
-    <DropDown
+    <DropDown.PrimaryDropdown
       options={selectableVersions}
       labelText="Versão"
       className="w-[400px]"
-      variant="primary"
       id="version"
-    ></DropDown>
+    ></DropDown.PrimaryDropdown>
   );
 }

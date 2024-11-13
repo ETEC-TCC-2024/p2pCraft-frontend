@@ -33,50 +33,44 @@ export const ConfigForm: React.FC<ConfigFormProps> = ({ initialProps }) => {
       <input name="serverName" defaultValue={initialProps.server.name} hidden></input>
       <div className="flex flex-col gap-9 m-16">
         <div className="flex flex-row h-fit gap-9">
-          <DropDown
+          <DropDown.GreenDropdown
             options={gamemodes}
             labelText={"Modo de jogo"}
             id={"gamemode"}
-            variant="green"
             initialOption={{
               label: serverProperties.gameMode.toLocaleLowerCase(),
               value: serverProperties.gameMode,
             }}
-          ></DropDown>
-          <DropDown
+          />
+          <DropDown.GreenDropdown
             options={difficulties}
             labelText={"Dificuldade"}
             id={"difficulty"}
-            variant="green"
             initialOption={{
               label: serverProperties.difficulty.toLocaleLowerCase(),
               value: serverProperties.difficulty,
             }}
-          ></DropDown>
+          />
 
           <NumberField
             currentNumber={number}
             setNumber={setNumber}
             fieldName={"slots"}
             labelText={"Player Slots"}
-          ></NumberField>
+          />
         </div>
         <div className="flex flex-row h-fit gap-9">
           <SwtichField
             labelText={"Permitir Pirata"}
             switchName={"offlineMode"}
             open={serverProperties.cracked}
-          ></SwtichField>
+          />
           <SwtichField
             labelText={"Whitelist"}
             switchName={"whitelist"}
             open={serverProperties.whitelist}
-          ></SwtichField>
-          <SwtichField
-            labelText={"PVP"}
-            switchName={"pvp"}
-            open={serverProperties.pvpEnabled}
-          ></SwtichField>
+          />
+          <SwtichField labelText={"PVP"} switchName={"pvp"} open={serverProperties.pvpEnabled} />
         </div>
         <Button variant={"primary"} type="submit" className="w-fit mx-auto">
           Salvar

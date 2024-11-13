@@ -43,6 +43,22 @@ class ServerService {
     const response = await P2PApi.delete(`/server/${serverName}/whitelist/${playerName}`);
     return response;
   }
+
+  async addClientAccess(serverName: string, clientName: string, accessType: string) {
+    return await P2PApi.post(`/server/${serverName}/access`, { clientName, role: accessType });
+  }
+
+  async updateClientAccess(serverName: string, clientName: string, accessType: string) {
+    return await P2PApi.put(`/server/${serverName}/access/${clientName}`, { "accessType" : accessType });
+  }
+
+  async removeClientAccess(serverName: string, clientName: string) {
+    return await P2PApi.delete(`/server/${serverName}/access/${clientName}`);
+  }
+
+  async getServerAccesses(serverName: string) {
+    return await P2PApi.get(`/server/${serverName}/access`);
+  }
 }
 
 export default new ServerService();

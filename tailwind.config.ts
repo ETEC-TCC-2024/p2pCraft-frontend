@@ -1,3 +1,4 @@
+import { tree } from "next/dist/build/templates/app-page";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -91,7 +92,7 @@ const config: Config = {
         "black-900": "#060606",
       },
       boxShadow: {
-        'left-lg': 'inset 20px 0px 10px rgba(0, 0, 0, 0.05)',
+        "left-lg": "inset 20px 0px 10px rgba(0, 0, 0, 0.05)",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -99,7 +100,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-  ],
+  important: true,
+  plugins: [],
 };
 export default config;

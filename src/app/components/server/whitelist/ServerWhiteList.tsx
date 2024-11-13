@@ -15,7 +15,7 @@ const WhiteList = ({
   const [players, setPlayers] = useState(whitelistPlayers);
 
   return (
-    <div className="border-[3px] border-dark-green-500 ">
+    <div className="">
       <WhitelistField
         serverName={serverName}
         onAdd={(player) => setPlayers([...players, player])}
