@@ -71,15 +71,41 @@ export async function setServerOpen(formData: FormData) {
 }
 
 export async function addPlayerToWhitelist(formData: FormData) {
-  const playerName = formData.get("playerName")?.toString()!;
-  const serverName = formData.get("serverName")?.toString()!;
+  const { serverName, playerName } = getWhiteListFormData(formData);
   await ServerController.addToWhiteList(serverName, playerName);
 }
 
 export async function removePlayerFromWhitelist(formData: FormData) {
+  const { serverName, playerName } = getWhiteListFormData(formData);
+  await ServerController.removeFromWhiteList(serverName, playerName);
+}
+
+export async function addClientAccess(formData: FormData) {
+  const { serverName, clientName, accessType } = getClientAccessFormData(formData);
+  await ServerController.addClientAccess(serverName, clientName, accessType);
+}
+
+export async function removeClientAccess(formData: FormData) {
+  const { serverName, clientName } = getClientAccessFormData(formData);
+  await ServerController.removeClientAccess(serverName, clientName);
+}
+
+export async function updateClientAccess(formData: FormData) {
+  const { serverName, clientName, accessType } = getClientAccessFormData(formData);
+  await ServerController.updateClientAccess(serverName, clientName, accessType);
+}
+
+function getClientAccessFormData(formData: FormData) {
+  const serverName = formData.get("serverName")?.toString()!;
+  const clientName = formData.get("clientName")?.toString()!;
+  const accessType = formData.get("accessType")?.toString()!;
+  return { serverName, clientName, accessType };
+}
+
+function getWhiteListFormData(formData: FormData) {
   const playerName = formData.get("playerName")?.toString()!;
   const serverName = formData.get("serverName")?.toString()!;
-  await ServerController.removeFromWhiteList(serverName, playerName);
+  return { serverName, playerName };
 }
 
 export type GetServerState =

@@ -4,7 +4,7 @@
     export interface IconProps {
     className?: string;
 }
-export type iconKeys = "Default" | "ArrowDown" | "ArrowLeft" | "ArrowRight" | "ArrowUp" | "ClipboardOutline1" | "Close" | "DarkGear" | "Discord" | "Download" | "First" | "Gear" | "Github" | "Lock" | "Logo" | "Minus" | "NoQueue" | "NoCoin" | "OpenSource" | "Pause" | "People" | "Play" | "Plus" | "Second" | "Signal" | "Speedometer" | "Start" | "Stop" | "TextCursor" | "Third" | "Verified" | "WhiteDownload" | "WhiteStart" | "Youtube";
+export type iconKeys = "Default" | "ArrowDown" | "ArrowLeft" | "ArrowRight" | "ArrowUp" | "ClipboardOutline1" | "Close" | "DarkGear" | "Discord" | "Download" | "First" | "Gear" | "Github" | "Lock" | "Logo" | "Minus" | "NoQueue" | "NoCoin" | "OpenSource" | "Pause" | "People" | "Person" | "Play" | "Plus" | "Second" | "Signal" | "Speedometer" | "Start" | "Stop" | "TextCursor" | "Third" | "Verified" | "WhiteDownload" | "WhiteStart" | "Youtube";
 
  const Default = lazy(async () => await import("./icons/Default"))
 const ArrowDown = lazy(async () => await import("./icons/ArrowDown"))
@@ -27,6 +27,7 @@ const NoCoin = lazy(async () => await import("./icons/NoCoin"))
 const OpenSource = lazy(async () => await import("./icons/OpenSource"))
 const Pause = lazy(async () => await import("./icons/Pause"))
 const People = lazy(async () => await import("./icons/People"))
+const Person = lazy(async () => await import("./icons/Person"))
 const Play = lazy(async () => await import("./icons/Play"))
 const Plus = lazy(async () => await import("./icons/Plus"))
 const Second = lazy(async () => await import("./icons/Second"))
@@ -62,6 +63,7 @@ NoCoin : ({className}) => <NoCoin className={className} />,
 OpenSource : ({className}) => <OpenSource className={className} />,
 Pause : ({className}) => <Pause className={className} />,
 People : ({className}) => <People className={className} />,
+Person : ({className}) => <Person className={className} />,
 Play : ({className}) => <Play className={className} />,
 Plus : ({className}) => <Plus className={className} />,
 Second : ({className}) => <Second className={className} />,

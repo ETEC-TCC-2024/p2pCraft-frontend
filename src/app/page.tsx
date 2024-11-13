@@ -68,6 +68,11 @@ const MainFeatureSection = () => {
             Como os jogadores são a própria host, a distancia da comunicação entre o servidor e os
             players normalmente diminui, ou seja o tempo de resposta é curto.
           </FeatureSection.Body>
+                <FeatureSection.Footer>
+            <Button variant="link" className="mr-0 p-0 pb-2">
+              Ver mais
+            </Button>
+          </FeatureSection.Footer>
         </FeatureSection.Root>
 
         <FeatureSection.Root iconName="NoQueue">
@@ -76,6 +81,11 @@ const MainFeatureSection = () => {
             Chega de esperas pra abrir seu servidor, com a P2PCraft é como se seu servidor
             estivesse sempre aberto!
           </FeatureSection.Body>
+          <FeatureSection.Footer>
+            <Button variant="link" className="mr-0 p-0 pb-2">
+              Ver mais
+            </Button>
+          </FeatureSection.Footer>
         </FeatureSection.Root>
 
         <FeatureSection.Root iconName="Speedometer">
@@ -84,6 +94,11 @@ const MainFeatureSection = () => {
             Você sabia que com apenas 6gb de ram é possível ser uma excelente host sem prejudicar
             sua gameplay? A P2PCraft é perfeita para pequenos grupos de 4-8 jogadores.
           </FeatureSection.Body>
+          <FeatureSection.Footer>
+            <Button variant="link" className="mr-0 p-0 pb-2">
+              Ver mais
+            </Button>
+          </FeatureSection.Footer>
         </FeatureSection.Root>
 
         <FeatureSection.Root iconName="OpenSource">
@@ -92,6 +107,11 @@ const MainFeatureSection = () => {
             Ficou desconfiado com alguma funcionalidade? A P2PCraft possui um código 100% aberto,
             basta acessar nossa organização no Github.
           </FeatureSection.Body>
+          <FeatureSection.Footer>
+            <Button variant="link" className="mr-0 p-0 pb-2">
+              Ver mais
+            </Button>
+          </FeatureSection.Footer>
         </FeatureSection.Root>
       </div>
     </div>

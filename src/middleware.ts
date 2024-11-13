@@ -2,7 +2,7 @@ import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { API_URL } from "./app/actions/config";
 
-const publicRoutes = ["/home", "/register", "/", "/signup", "/login"];
+const publicRoutes = ["/home", "/register", "/", "/signup", "/login", "/download"];
 const CLIENT_HOME_PAGE = "/client";
 
 export default async function middleware(req: NextRequest) {

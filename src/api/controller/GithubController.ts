@@ -8,7 +8,7 @@ class GithubController {
       headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` },
     });
     const size: string = response.data.size + "";
-    return size.substring(0, 3);
+    return size.substring(0, 2);
   }
 }
 
