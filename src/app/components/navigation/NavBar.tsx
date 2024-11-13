@@ -11,14 +11,17 @@ interface NavbarProps extends VariantProps<typeof navbarVariants> {
   isLoggedIn?: boolean;
 }
 
-const navbarVariants = cva("mx-auto h-fit px-4 top-0 py-1 sticky flex justify-between items-center", {
-  variants: {
-    variant: {
-      primary: "container",
-      dark: "bg-dark-green-900",
+const navbarVariants = cva(
+  "mx-auto h-fit px-4 top-0 py-1 sticky flex justify-between items-center",
+  {
+    variants: {
+      variant: {
+        primary: "container",
+        dark: "bg-dark-green-900",
+      },
     },
-  },
-});
+  }
+);
 
 export const NavBar: React.FC<NavbarProps> = ({
   variant = "primary",
@@ -43,7 +46,9 @@ export const NavBar: React.FC<NavbarProps> = ({
 
         <NavBarButton>Sobre mim</NavBarButton>
 
-        <NavBarButton>Baixar mod</NavBarButton>
+        <Link href={"/download"}>
+          <NavBarButton>Baixar mod</NavBarButton>
+        </Link>
 
         <NavBarButton>FAQ</NavBarButton>
         <Conditional showWhen={isLoggedIn}>

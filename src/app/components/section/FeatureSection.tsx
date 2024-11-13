@@ -3,6 +3,7 @@ import Text from "../text/TextComponent";
 import IconBackground from "../icon/IconBackground";
 import { iconKeys } from "../icon/Icon";
 import Button from "../button/Button";
+import { cn } from "@/lib/utils";
 
 export const Title: React.FC<Text.TextProps> = ({ children }) => {
   return (
@@ -12,23 +13,23 @@ export const Title: React.FC<Text.TextProps> = ({ children }) => {
   );
 };
 
-export const Body: React.FC<Text.TextProps> = ({ children }) => {
-  return (
-    <>
-      <Text className="mb-auto">{children}</Text>
-      <Button variant="link" className="mr-0 p-0 pb-2">Ver mais</Button>
-    </>
-  );
+export const Body: React.FC<Text.TextProps> = ({ children, className }) => {
+  return <Text className={cn("mb-auto", className)}>{children}</Text>;
 };
 
 interface FeatureSectionProps {
   iconName?: iconKeys;
   children: ReactNode;
+  className?: string;
 }
 
-const Root = ({ iconName, children }: FeatureSectionProps) => {
+const Root = ({ iconName, children, className }: FeatureSectionProps) => {
   return (
-    <div className="flex shadow-lg backdrop-blur-sm h-full bg-green-ion-100 bg-opacity-50 rounded-2xl px-6 py-4 w-[510px] min-h-[210px]">
+    <div
+      className={cn(
+        "flex shadow-lg backdrop-blur-sm h-full bg-green-ion-100 bg-opacity-50 rounded-2xl px-6 py-4 w-[510px] min-h-[210px]",
+        className
+      )}>
       <IconBackground
         iconName={iconName!}
         className="overflow-hidden min-w-12 min-h-12"
