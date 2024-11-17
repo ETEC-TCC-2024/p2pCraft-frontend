@@ -1,6 +1,6 @@
 "use client";
 import UserServer from "@/api/model/UserServer";
-import { updateProperties } from "@/app/actions/server";
+import { deleteServer, updateProperties } from "@/app/actions/server";
 import Button from "@/app/components/button/Button";
 import DropDown, { DropDownOption } from "@/app/components/form/dropbox/Dropbox";
 import NumberField from "@/app/components/form/number/NumberField";
@@ -29,53 +29,60 @@ export const ConfigForm: React.FC<ConfigFormProps> = ({ initialProps }) => {
     { label: "Adventure", value: "ADVENTURE" },
   ];
   return (
-    <form action={updateProperties}>
-      <input name="serverName" defaultValue={initialProps.server.name} hidden></input>
-      <div className="flex flex-col gap-9 m-16">
-        <div className="flex flex-row h-fit gap-9">
-          <DropDown.GreenDropdown
-            options={gamemodes}
-            labelText={"Modo de jogo"}
-            id={"gamemode"}
-            initialOption={{
-              label: serverProperties.gameMode.toLocaleLowerCase(),
-              value: serverProperties.gameMode,
-            }}
-          />
-          <DropDown.GreenDropdown
-            options={difficulties}
-            labelText={"Dificuldade"}
-            id={"difficulty"}
-            initialOption={{
-              label: serverProperties.difficulty.toLocaleLowerCase(),
-              value: serverProperties.difficulty,
-            }}
-          />
-
-          <NumberField
-            currentNumber={number}
-            setNumber={setNumber}
-            fieldName={"slots"}
-            labelText={"Player Slots"}
-          />
+    <div>
+      <form action={updateProperties}>
+        <input name="serverName" defaultValue={initialProps.server.name} hidden></input>
+        <div className="flex flex-col gap-9 m-16">
+          <div className="flex flex-row h-fit gap-9">
+            <DropDown.GreenDropdown
+              options={gamemodes}
+              labelText={"Modo de jogo"}
+              id={"gamemode"}
+              initialOption={{
+                label: serverProperties.gameMode.toLocaleLowerCase(),
+                value: serverProperties.gameMode,
+              }}
+            />
+            <DropDown.GreenDropdown
+              options={difficulties}
+              labelText={"Dificuldade"}
+              id={"difficulty"}
+              initialOption={{
+                label: serverProperties.difficulty.toLocaleLowerCase(),
+                value: serverProperties.difficulty,
+              }}
+            />
+            <NumberField
+              currentNumber={number}
+              setNumber={setNumber}
+              fieldName={"slots"}
+              labelText={"Player Slots"}
+            />
+          </div>
+          <div className="flex flex-row h-fit gap-9">
+            <SwtichField
+              labelText={"Permitir Pirata"}
+              switchName={"offlineMode"}
+              open={serverProperties.cracked}
+            />
+            <SwtichField
+              labelText={"Whitelist"}
+              switchName={"whitelist"}
+              open={serverProperties.whitelist}
+            />
+            <SwtichField labelText={"PVP"} switchName={"pvp"} open={serverProperties.pvpEnabled} />
+          </div>
+          <Button variant={"primary"} type="submit" className="w-fit mx-auto">
+            Salvar
+          </Button>
         </div>
-        <div className="flex flex-row h-fit gap-9">
-          <SwtichField
-            labelText={"Permitir Pirata"}
-            switchName={"offlineMode"}
-            open={serverProperties.cracked}
-          />
-          <SwtichField
-            labelText={"Whitelist"}
-            switchName={"whitelist"}
-            open={serverProperties.whitelist}
-          />
-          <SwtichField labelText={"PVP"} switchName={"pvp"} open={serverProperties.pvpEnabled} />
-        </div>
-        <Button variant={"primary"} type="submit" className="w-fit mx-auto">
-          Salvar
+      </form>
+      <form action={deleteServer} className="flex mx-auto">
+        <input name="serverName" defaultValue={initialProps.server.name} hidden></input>
+        <Button variant={"red"} className="w-fit mx-auto -mt-8">
+          Deletar Servidor
         </Button>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };

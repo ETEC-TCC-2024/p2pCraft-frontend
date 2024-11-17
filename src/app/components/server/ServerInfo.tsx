@@ -2,7 +2,7 @@
 
 import Button from "../button/Button";
 import Icon from "../icon/Icon";
-import { cn } from "@/lib/utils";
+import { cn, copyToClipboard } from "@/lib/utils";
 import UserServer from "@/api/model/UserServer";
 import { useState, ReactNode } from "react";
 import Conditional from "../conditional/Conditional";
@@ -14,6 +14,7 @@ const ServerInfo = ({ server }: { server: UserServer }) => {
   const handleSubmit = () => {
     setServerClosed(!serverClosed);
   };
+  const [copyAnimationRunning, setCopyAnimationRunning] = useState(false);
 
   return (
     <div className="flex flex-col h-full justify-center gap-6 min-w-[550px] max-h-[200px]">
@@ -21,13 +22,24 @@ const ServerInfo = ({ server }: { server: UserServer }) => {
         <Text weight={"bold"} className="text-white text-xl">
           {server.staticIp}
         </Text>
-        <div className="ml-auto">
-          <Icon.ClipboardOutline1 className="w-6 h-6"></Icon.ClipboardOutline1>
-        </div>
+
+        <button className="ml-auto" onClick={() => copyToClipboard(server.staticIp)}>
+          <div
+            className={cn(
+              "flex items-center justify-center relative w-8 h-8 rounded-full bg-dark-green-500",
+              {
+                "animate-pop": copyAnimationRunning,
+              }
+            )}
+            onClick={() => setCopyAnimationRunning(true)}
+            onAnimationEnd={() => setCopyAnimationRunning(false)}>
+            <Icon.ClipboardOutline1 className="w-6 h-6"></Icon.ClipboardOutline1>
+          </div>
+        </button>
       </div>
       <div className="flex flex-col justify-between h-full">
         <Conditional showWhen={!serverClosed}>
-          <StyledText>20 Players Online{/* TODO player count */}</StyledText>
+          <StyledText>Servidor Online {/* TODO player count */}</StyledText>
         </Conditional>
         <Conditional showWhen={serverClosed}>
           <StyledText>Server Offline</StyledText>
@@ -56,8 +68,7 @@ const TurnOnButton = ({ open }: { open: boolean }) => {
         "bg-red-300  hover:bg-red-200": open,
         "bg-green-400 hover:bg-green-300": !open,
       })}
-      type="submit"
-    >
+      type="submit">
       <div className="flex justify-center mx-auto">
         <div className="w-11 h-11">{IconComponent}</div>
       </div>

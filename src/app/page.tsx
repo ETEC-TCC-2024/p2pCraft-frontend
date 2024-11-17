@@ -20,32 +20,37 @@ const HomePage = () => {
         <BackgroundLogo />
         <MainText />
         <MainFeatureSection />
-        <AboutMe.Root className="max-h-[624px]">
-          <AboutMe.ImageSection>
-            <AboutMe.Image imagePath="/assets/cat1.png" />
-            <AboutMe.Image imagePath="/assets/cat2.png" />
-            <AboutMe.Image imagePath="/assets/cat3.png" />
-          </AboutMe.ImageSection>
-          <AboutMe.MainTextSection>
-            <TextSection.Title> Sobre Mim</TextSection.Title>
-            <TextSection.Body>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin vitae
-              ipsum ac luctus. Mauris ac semper libero. Nulla facilisi. Nam bibendum interdum
-              risus, at ultricies felis pulvinar a.
-              <br />
-              Donec fringilla erat auctor felis pharetra, ut consectetur massa varius. Quisque
-              ultricies vitae urna quis lobortis. Fusce bibendum orci dictum rhoncus rhoncus.
-              Aliquam gravida tincidunt lectus sed rhoncus. <br />
-              Etiam tincidunt mi quis ligula euismod commodo. Fusce eu consequat mi, sed egestas
-              lacus. Sed eget accumsan sem. Class aptent taciti sociosqu ad litora torquent per
-              conubia nostra, per inceptos himenaeos. <br />
-              Praesent egestas tellus et purus fringilla ultrices.
-            </TextSection.Body>
-            <TextSection.Footer>
-              <SocialNetworks />
-            </TextSection.Footer>
-          </AboutMe.MainTextSection>
-        </AboutMe.Root>
+        <div className="flex items-center justify-center">
+          <AboutMe.Root className="max-h-[624px]">
+            <AboutMe.ImageSection>
+              <AboutMe.Image imagePath="/assets/image.png" />
+              <AboutMe.Image imagePath="/assets/image1.png" />
+              <AboutMe.Image imagePath="/assets/image2.png" />
+            </AboutMe.ImageSection>
+            <AboutMe.MainTextSection>
+              <TextSection.Title> Sobre Mim</TextSection.Title>
+              <TextSection.Body className="text-justify max-w-[700px] max-h-90 self-start">
+                Sou um programador apaixonado por tecnologia e inovação, com experiência em
+                desenvolvimento de software e um forte interesse por aprender novas linguagens e
+                frameworks. <br />
+                Tenho um sólido entendimento em programação orientada a objetos e práticas de
+                desenvolvimento ágil, e sou um entusiasta em criar soluções eficientes e
+                escaláveis.
+                <br />
+                Desde sempre, sou movido pela curiosidade e pelo desejo de entender como as coisas
+                funcionam. Esse interesse me levou ao universo da tecnologia, onde encontrei uma
+                verdadeira paixão pela programação.
+                <br />
+                Gosto de explorar diferentes linguagens e frameworks, sempre em busca de formas
+                inovadoras para resolver problemas e criar soluções que façam a diferença na vida
+                das pessoas.
+              </TextSection.Body>
+              <TextSection.Footer>
+                <SocialNetworks />
+              </TextSection.Footer>
+            </AboutMe.MainTextSection>
+          </AboutMe.Root>
+        </div>
       </main>
       <Footer></Footer>
     </>
@@ -68,10 +73,12 @@ const MainFeatureSection = () => {
             Como os jogadores são a própria host, a distancia da comunicação entre o servidor e os
             players normalmente diminui, ou seja o tempo de resposta é curto.
           </FeatureSection.Body>
-                <FeatureSection.Footer>
-            <Button variant="link" className="mr-0 p-0 pb-2">
-              Ver mais
-            </Button>
+          <FeatureSection.Footer>
+            <Link href={"/download"}>
+              <Button variant="link" className="mr-0 p-0 pb-2">
+                Ver mais
+              </Button>
+            </Link>
           </FeatureSection.Footer>
         </FeatureSection.Root>
 
@@ -82,9 +89,11 @@ const MainFeatureSection = () => {
             estivesse sempre aberto!
           </FeatureSection.Body>
           <FeatureSection.Footer>
-            <Button variant="link" className="mr-0 p-0 pb-2">
-              Ver mais
-            </Button>
+            <Link href={"/download"}>
+              <Button variant="link" className="mr-0 p-0 pb-2">
+                Ver mais
+              </Button>
+            </Link>
           </FeatureSection.Footer>
         </FeatureSection.Root>
 
@@ -95,9 +104,11 @@ const MainFeatureSection = () => {
             sua gameplay? A P2PCraft é perfeita para pequenos grupos de 4-8 jogadores.
           </FeatureSection.Body>
           <FeatureSection.Footer>
-            <Button variant="link" className="mr-0 p-0 pb-2">
-              Ver mais
-            </Button>
+            <Link href={"/download"}>
+              <Button variant="link" className="mr-0 p-0 pb-2">
+                Ver mais
+              </Button>
+            </Link>
           </FeatureSection.Footer>
         </FeatureSection.Root>
 
@@ -108,9 +119,11 @@ const MainFeatureSection = () => {
             basta acessar nossa organização no Github.
           </FeatureSection.Body>
           <FeatureSection.Footer>
-            <Button variant="link" className="mr-0 p-0 pb-2">
-              Ver mais
-            </Button>
+            <Link href={"https://github.com/ETEC-TCC-2024"}>
+              <Button variant="link" className="mr-0 p-0 pb-2">
+                Ver mais
+              </Button>
+            </Link>
           </FeatureSection.Footer>
         </FeatureSection.Root>
       </div>

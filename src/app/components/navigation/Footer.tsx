@@ -22,9 +22,9 @@ export const Footer: React.FC<FooterProps> = ({ variant = "primary" }: FooterPro
     <div className={cn(footerVariants({ variant }))}>
       <FooterLogo variant={variant}></FooterLogo>
       <div className="flex justify-between items-stretch mx-24 w-full">
-        <FooterLinkButton href="">Sobre mim</FooterLinkButton>
-        <FooterLinkButton href="">Código</FooterLinkButton>
-        <FooterLinkButton href="">FAQ</FooterLinkButton>
+        <FooterLinkButton href="/">Sobre mim</FooterLinkButton>
+        <FooterLinkButton href="https://github.com/ETEC-TCC-2024">Código</FooterLinkButton>
+        <FooterLinkButton href="/download">FAQ</FooterLinkButton>
       </div>
       <SocialNetworks />
     </div>
@@ -34,8 +34,7 @@ export const Footer: React.FC<FooterProps> = ({ variant = "primary" }: FooterPro
       <Link href={href}>
         <Button
           variant={"link"}
-          className={cn(variant == "dark" ? "text-white hover:text-gray-400" : "text-black-900")}
-        >
+          className={cn(variant == "dark" ? "text-white hover:text-gray-400" : "text-black-900")}>
           {children}
         </Button>
       </Link>
@@ -49,11 +48,11 @@ export const FooterLogo = ({
   variant: VariantProps<typeof footerVariants>["variant"];
 }) => {
   return (
-    <div className="flex items-center min-w-fit">
+    <Link href={"/"} className="flex items-center min-w-fit h-fit">
       <Icon.Logo className="w-16 h-16" />
       <div className={cn(variant == "dark" ? "text-white" : "text-black-900")}>
         © 2024 P2PCraft
       </div>
-    </div>
+    </Link>
   );
 };

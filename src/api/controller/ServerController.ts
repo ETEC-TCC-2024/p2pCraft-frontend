@@ -58,6 +58,11 @@ class ServerController {
     const response = await ServerService.getServerAccesses(serverName);
     return ClientAccessJsonParser.parseMany(response.data);
   }
+
+  async deleteServer(serverName : string){
+    return await ServerService.deleteServer(serverName);
+
+  }
 }
 
 export default new ServerController();
