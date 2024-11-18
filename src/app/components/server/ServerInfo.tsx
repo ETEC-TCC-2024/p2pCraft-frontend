@@ -42,7 +42,7 @@ const ServerInfo = ({ server }: { server: UserServer }) => {
           <StyledText>Servidor Online {/* TODO player count */}</StyledText>
         </Conditional>
         <Conditional showWhen={serverClosed}>
-          <StyledText>Server Offline</StyledText>
+          <StyledText>Servidor Offline</StyledText>
         </Conditional>
         <StyledText>Versão: {server.mapConfigurations.version}</StyledText>
         <form action={setServerOpen} className="w-full" onSubmit={handleSubmit}>
