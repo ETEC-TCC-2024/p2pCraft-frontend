@@ -55,8 +55,8 @@ export default function RegisterServerPage() {
 function VersionDropdown() {
   const selectableVersions = [
     { label: "1.20.0", value: "1.20.0" },
-    { label: "1.11.1", value: "1.11.1" },
-    { label: "1.21.1", value: "1.21.1" },
+    // { label: "1.11.1", value: "1.11.1" },
+    // { label: "1.21.1", value: "1.21.1" },
   ];
 
   return (

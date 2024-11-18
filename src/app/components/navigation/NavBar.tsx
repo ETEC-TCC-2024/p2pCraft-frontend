@@ -42,15 +42,18 @@ export const NavBar: React.FC<NavbarProps> = ({
         <Logo textVariant={variant == "dark" ? "white" : "primary"}></Logo>
       </Link>
       <div className="md:flex gap-x-6">
-        <NavBarButton>Início</NavBarButton>
-
-        <NavBarButton>Sobre mim</NavBarButton>
-
+        <Link href={"/"}>
+          <NavBarButton>Início</NavBarButton>
+        </Link>
+        <Link href={"/"}>
+          <NavBarButton>Sobre mim</NavBarButton>
+        </Link>
         <Link href={"/download"}>
           <NavBarButton>Baixar mod</NavBarButton>
         </Link>
-
-        <NavBarButton>FAQ</NavBarButton>
+        <Link href={"/download"}>
+          <NavBarButton>FAQ</NavBarButton>
+        </Link>
         <Conditional showWhen={isLoggedIn}>
           <form action={logout}>
             <Button variant="primary" type="submit">

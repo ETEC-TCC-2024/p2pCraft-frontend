@@ -14,12 +14,10 @@ export const SwtichField: React.FC<SwitchFieldProps> = ({ switchName, labelText,
   const [openState, setOpen] = useState(open);
   return (
     <>
-      <div
-        className="flex items-center h-fit text-lg w-64 py-4 px-3 max-h-16 justify-between bg-dark-green-600"
-        onClick={() => setOpen(!openState)}>
-          <input name={switchName} defaultValue={openState + ""} hidden></input>
+      <div className="flex items-center h-fit text-lg w-64 py-4 px-3 max-h-16 justify-between bg-dark-green-600">
+        <input name={switchName} defaultValue={openState + ""} hidden></input>
         <Text className="text-white">{labelText}</Text>
-        <button type="button">
+        <button type="button" onClick={() => setOpen(!openState)}>
           <Switch active={openState}></Switch>
         </button>
       </div>

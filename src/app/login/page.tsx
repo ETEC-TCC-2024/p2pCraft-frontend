@@ -46,9 +46,9 @@ const LoginPage = () => {
             fieldType="password"
             invalid={!passwordValid}
           />
-          <Button variant={"link"} className="relative p-0 ml-auto" type="button">
+          {/* <Button variant={"link"} className="relative p-0 ml-auto" type="button">
             Esqueceu sua senha?
-          </Button>
+          </Button> */}
           <Button variant={"green"} className="m-9" type="submit">
             Entrar
           </Button>

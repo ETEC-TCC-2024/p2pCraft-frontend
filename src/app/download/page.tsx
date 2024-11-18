@@ -24,7 +24,7 @@ const DownloadPage = () => {
           />
           <CustomFeatureSection
             iconName="Second"
-            href="/"
+            href="https://github.com/ETEC-TCC-2024/p2pcraft-backend/releases/download/1.0.0/p2pcraft-connection-mod-1.0.jar"
             title="Baixe nosso mod"
             body="Clique no botão abaixo para baixar o mod, disponível para Fabric 1.20.1"
             buttomText="Baixar agora"
@@ -33,7 +33,7 @@ const DownloadPage = () => {
         <div className="flex mx-auto items-center justify-center my-16">
           <CustomFeatureSection
             iconName="Third"
-            href="/"
+            href="/client"
             title="Entre no servidor"
             body="Conecte no servidor copiando o IP no nosso site"
             buttomText="Ver mais"

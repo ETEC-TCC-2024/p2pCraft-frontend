@@ -98,6 +98,19 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      animation: {
+        pop: "pop 0.2s cubic-bezier(0, 0, 0.2, 1)",
+      },
+      keyframes: {
+        pop: {
+          "50%": {
+            transform: "scale(1.5)",
+          },
+          "100%": {
+            transform: "scale(1)",
+          },
+        },
+      },
     },
   },
   important: true,

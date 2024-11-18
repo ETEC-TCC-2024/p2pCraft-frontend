@@ -26,10 +26,9 @@ export const Root: React.FC<RootProps> = ({ className, children }) => {
   return (
     <div
       className={cn(
-        "flex flex-row gap-6 px-4 py-12 mx-auto justify-between items-stretch container",
+        "flex flex-row gap-6 px-4 py-12 mx-auto items-stretch justify-center container",
         className
-      )}
-    >
+      )}>
       {children}
     </div>
   );
@@ -91,8 +90,7 @@ const SwitchImageButton: React.FC<SwitchImageButtonProps> = ({ onClick, children
         "max-w-12 max-h-12 p-[8px] rounded-full mx-4 hover:bg-green-ion-900 transition hover:fade-in-10",
         className
       )}
-      onClick={onClick}
-    >
+      onClick={onClick}>
       {children}
     </Button>
   );

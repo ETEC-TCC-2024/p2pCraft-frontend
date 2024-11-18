@@ -10,15 +10,15 @@ export default async function middleware(req: NextRequest) {
   const isProtectedRoute = !publicRoutes.includes(path);
   const isApiRequest = req.nextUrl.basePath == API_URL;
   const currentToken = cookies().get("session")?.value;
-
-  if (isProtectedRoute && !currentToken) {
+  console.log(path)
+  if (isProtectedRoute && !currentToken ) {
     const url = req.nextUrl.clone();
     url.pathname = "/login";
     return NextResponse.redirect(url);
   }
 
   if (currentToken) {
-    if (!isProtectedRoute) {
+    if (!isProtectedRoute && path != "/download") {
       return NextResponse.redirect(new URL(CLIENT_HOME_PAGE, req.nextUrl));
     }
     if (isApiRequest) req.headers.set("Authorization", `Bearer ${currentToken}`);

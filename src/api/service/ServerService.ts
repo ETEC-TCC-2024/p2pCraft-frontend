@@ -59,6 +59,10 @@ class ServerService {
   async getServerAccesses(serverName: string) {
     return await P2PApi.get(`/server/${serverName}/access`);
   }
+    async deleteServer(serverName : string){
+      return await P2PApi.delete(`/server/${serverName}`)
+    }
+
 }
 
 export default new ServerService();

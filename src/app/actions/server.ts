@@ -63,6 +63,12 @@ export async function updateProperties(formData: FormData) {
   redirect(`/server/${serverName}`);
 }
 
+export async function deleteServer(formData: FormData) {
+  const serverName = formData.get("serverName")?.toString()!;
+  await ServerController.deleteServer(serverName);
+  redirect(`/client`);
+}
+
 export async function setServerOpen(formData: FormData) {
   const open = formData.get("open")?.toString()!;
   const serverName = formData.get("serverName")?.toString()!;
