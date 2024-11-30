@@ -3,15 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "gen:icon": "node src/app/components/icon/script/iconGenerator.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "genColors": "python src/colors/generator/__init__.py"
   },
   "dependencies": {
+    "axios": "^1.7.7",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.3.31",
+    "jose": "^5.9.3",
+    "js-convert-case": "^4.2.0",
     "next": "14.2.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-select": "^5.8.1",
+    "tailwind-merge": "^2.4.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20.14.9",
