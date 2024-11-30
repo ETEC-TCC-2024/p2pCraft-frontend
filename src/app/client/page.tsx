@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use, useEffect } from "react";
 import Button from "../components/button/Button";
 import { Footer } from "../components/navigation/Footer";
 import { NavBar } from "../components/navigation/NavBar";
@@ -7,10 +7,12 @@ import TextComponent from "../components/text/TextComponent";
 import UserService from "@/api/service/UserService";
 import Conditional from "../components/conditional/Conditional";
 import Link from "next/link";
+import { logout } from "../actions/auth";
+import { cookies } from "next/headers";
+import ServerList from "../components/server/ServerList";
 
 const ServerHomePage = async () => {
   const currentClient = await UserService.getCurrentClient();
-  const servers = currentClient.servers;
   return (
     <>
       <header>
@@ -20,28 +22,15 @@ const ServerHomePage = async () => {
         <TextComponent size={"extra_large_x4"} weight={"bold"}>
           Servidores
         </TextComponent>
-
-        <Conditional showWhen={servers.length > 0}>
-          <div className="flex flex-wrap justify-center gap-8 ">
-            {servers.map((server) => (
-              <ServerStatus server={server} key={server.staticIp}></ServerStatus>
-            ))}
-          </div>
-        </Conditional>
-
-        <Conditional showWhen={servers.length == 0}>
-          <div className="flex flex-col items-center gap-y-3">
-            <TextComponent size={"extra_large_x3"} weight={"normal"}>
-              Você não possui nenhum servidor registrado.
-            </TextComponent>
-            <TextComponent size={"extra_large_x3"} weight={"normal"}>
-              Registre seu primeiro servidor clicando no botão abaixo.
-            </TextComponent>
-          </div>
-        </Conditional>
-        <Link href={"/server/register"}>
-          <Button variant={"green"}>Registre um servidor</Button>
-        </Link>
+        <ServerList user={currentClient}></ServerList>
+        <div className="flex flex-row gap-20">
+          <Link href={"/server/register"}>
+            <Button variant={"green"}>Registre um servidor</Button>
+          </Link>
+          <Link href={"/client/edit"}>
+            <Button variant={"green"}>Editar Perfil</Button>
+          </Link>
+        </div>
       </div>
       <Footer />
     </>

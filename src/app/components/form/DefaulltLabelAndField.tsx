@@ -1,4 +1,4 @@
-import { HTMLInputTypeAttribute } from "react";
+import { ChangeEvent, HTMLInputTypeAttribute } from "react";
 import LabelAndField from "./LabelAndField";
 import { cn } from "@/lib/utils";
 
@@ -8,13 +8,17 @@ interface LabelAndFieldProps {
   fieldType?: HTMLInputTypeAttribute;
   invalid: boolean;
   className?: string;
+  defaultValue?: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 const DefaultLabelAndField: React.FC<LabelAndFieldProps> = ({
   labelName,
   labelText,
   fieldType = "text",
   invalid,
+  defaultValue = "",
   className = "",
+  onChange
 }) => {
   return (
     <LabelAndField
@@ -22,6 +26,8 @@ const DefaultLabelAndField: React.FC<LabelAndFieldProps> = ({
       fieldType={fieldType}
       inputName={labelName}
       fieldVariant={invalid ? "invalid" : null}
+      defaultValue={defaultValue}
+      onChange={onChange}
     >
       <div className="pl-1 p-2">{labelText}</div>
     </LabelAndField>

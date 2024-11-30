@@ -10,7 +10,6 @@ export default async function middleware(req: NextRequest) {
   const isProtectedRoute = !publicRoutes.includes(path);
   const isApiRequest = req.nextUrl.basePath == API_URL;
   const currentToken = cookies().get("session")?.value;
-  console.log(path)
   if (isProtectedRoute && !currentToken ) {
     const url = req.nextUrl.clone();
     url.pathname = "/login";

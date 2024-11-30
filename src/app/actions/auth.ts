@@ -12,6 +12,7 @@ import {
 } from "@/lib/validator/UserValidators";
 import UserService from "@/api/service/UserService";
 import { AxiosResponse } from "axios";
+import { UpdateClientDto } from "@/dto/client/UpdateClientDto";
 
 export async function login(formState: UserLoginState, formData: FormData) {
   const validateFields = UserLoginValidator.safeParse({
@@ -67,6 +68,26 @@ export async function register(formState: UserRegisterState, formData: FormData)
   redirect("/client");
 }
 
+export async function editProfile(formState : UserRegisterState, formData: FormData) {
+  const validateFields = UserRegisterValidator.safeParse({
+    email: formData.get("email"),
+    password: formData.get("password"),
+    confirmPassword: formData.get("confirmPassword"),
+    name: formData.get("name"),
+  });
+  const { name, email, password } = validateFields.data!;
+  const updateClientDto = new UpdateClientDto(name, email, password);
+  const response = await UserService.updateClient( updateClientDto)
+
+  if (response.status != 200) {
+    return getError(response);
+  }
+
+  redirect("/client")
+}
+export async function deleteClientAction(formData : FormData){
+  const response = await UserService.deleteClient()
+}
 export async function logout() {
   deleteSession();
   redirect("/login");

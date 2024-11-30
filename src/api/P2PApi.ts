@@ -15,7 +15,9 @@ class P2PApi {
   }
 
   async put(path: string, body: Object) {
-    return axiosInstance.put(path, body);
+    return axiosInstance.put(path, body, {
+      validateStatus: () => true,
+    });
   }
 
   async delete(path: string) {
